@@ -21,17 +21,17 @@ def fetch_issuer_names(url):
         if option.get('value') and not re.search(r'\d', option.get('value'))
     ]
 
-def
+def Call_Filter_1():
+    url = 'https://www.mse.mk/mk/stats/symbolhistory/KMB'
+    # Претпоставуваме дека fetch_issuer_names(url) враќа листа на имиња
+    issuer_names = fetch_issuer_names(url)
 
-url = 'https://www.mse.mk/mk/stats/symbolhistory/KMB'
-# Претпоставуваме дека fetch_issuer_names(url) враќа листа на имиња
-issuer_names = fetch_issuer_names(url)
+    # Додавање на ID за секое име во листата
+    issuer_data = [{"id": idx + 1, "name": name} for idx, name in enumerate(issuer_names)]
 
-# Додавање на ID за секое име во листата
-issuer_data = [{"id": idx + 1, "name": name} for idx, name in enumerate(issuer_names)]
+    # Запишување на листата со ID и имиња во JSON фајл
+    with open("../Baza/issuer_names.json", "w") as file:
+        json.dump(issuer_data, file, indent=4)
 
-# Запишување на листата со ID и имиња во JSON фајл
-with open("../Baza/issuer_names.json", "w") as file:
-    json.dump(issuer_data, file, indent=4)
 
 
