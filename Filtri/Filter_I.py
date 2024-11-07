@@ -21,6 +21,8 @@ def fetch_issuer_names(url):
         if option.get('value') and not re.search(r'\d', option.get('value'))
     ]
 
+def
+
 url = 'https://www.mse.mk/mk/stats/symbolhistory/KMB'
 # Претпоставуваме дека fetch_issuer_names(url) враќа листа на имиња
 issuer_names = fetch_issuer_names(url)
@@ -29,7 +31,7 @@ issuer_names = fetch_issuer_names(url)
 issuer_data = [{"id": idx + 1, "name": name} for idx, name in enumerate(issuer_names)]
 
 # Запишување на листата со ID и имиња во JSON фајл
-with open("Baza/issuer_names.json", "w") as file:
+with open("../Baza/issuer_names.json", "w") as file:
     json.dump(issuer_data, file, indent=4)
 
 
