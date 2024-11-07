@@ -41,4 +41,29 @@ def fetch_data_for_period(firm_code, start_date, end_date):
         print("Failed to retrieve data:", response.status_code)
 
 
-fetch_data_for_period("KMB", "01.11.2024", "07.11.2024")
+from datetime import datetime, timedelta
+
+# Главната функција за поделба на интервали и повикување на getDataitem
+def fetch_data_for_large_date_range(start_date, end_date):
+    max_days = 365
+    current_start = start_date
+
+    while current_start <= end_date:  # Променето: <= за да го вклучиме и последниот ден
+        # Одредување на крајната дата за тековниот интервал (максимум 365 дена)
+        next_end = current_start + timedelta(days=max_days - 1)
+
+        # Ако next_end надмине end_date, го поставуваме на end_date
+        if next_end > end_date:
+            next_end = end_date
+
+        # Повик на getDataitem за тековниот под-интервал
+        #fetch_data_for_period("KMB", "01.11.2024", "07.11.2024")
+        #getDataitem(current_start, next_end)
+
+        # Поместување на стартната дата за следниот интервал
+        current_start = next_end + timedelta(days=1)
+
+
+
+
+fetch_data_for_period("KMB", "05.11.2023", "04.11.2024")
