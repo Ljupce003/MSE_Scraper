@@ -1,13 +1,9 @@
 import json
-import Filter_II
 
 import requests
 from bs4 import BeautifulSoup
 import re
-
-csv_file_path = "../Baza/mega-data.csv"  # замени со вистинскиот пат до CSV документот
-json_file_path = "../Baza/issuer_names.json"  # замени со вистинскиот пат до JSON документот
-output_json="../Baza/last_dates.json"
+import Filter_II
 def fetch_issuer_names(url):
     """Fetch issuer names from the given URL and filter those without numbers in their codes."""
     response = requests.get(url)
@@ -37,6 +33,7 @@ def Call_Filter_1():
     # Запишување на листата со ID и имиња во JSON фајл
     with open("../Baza/issuer_names.json", "w") as file:
         json.dump(issuer_data, file, indent=4)
-    Filter_II.get_last_dates_for_firms(csv_file_path, issuer_data,output_json)
+    print("issuer_names data appended")
+    Filter_II.Call_Filter_II()
 
 

@@ -9,7 +9,7 @@ import time  # Import time module for timing
 start_time = time.time()
 
 # Load issuer names from JSON file
-with open("../Baza/issuer_names.json", 'r') as file:
+with open("Baza/issuer_names.json", 'r') as file:
     issuer_names = json.load(file)
 
 url = "https://www.mse.mk/mk/stats/symbolhistory/ALK"
