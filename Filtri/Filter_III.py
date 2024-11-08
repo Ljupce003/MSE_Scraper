@@ -71,10 +71,13 @@ def Call_save_data_from_to(firm_code, start_date, end_date):
 
     # Combine all issuer data into a single DataFrame and save as CSV
     if all_issuers_data:
+        # Комбинирај ги сите нови податоци
         combined_data = pd.concat(all_issuers_data, ignore_index=True)
-        combined_data.to_csv('mega-data.csv', index=False)
-        print("Data saved to 'mega-data.csv'")
-    else:
-        print("No data to save.")
 
-Call_save_data_from_to("KMB","08.11.2014","08.11.2024")
+        # Додај ги новите податоци на постоечкиот CSV
+        combined_data.to_csv('../Baza/mega-data.csv', mode='a', header=False, index=False)
+
+        print("Data appended to 'mega-data.csv'")
+    else:
+        print("No data to append.")
+#Call_save_data_from_to("KMB","08.11.2014","08.11.2024")
