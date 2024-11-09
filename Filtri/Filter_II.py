@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import Filter_III
 from datetime import datetime
@@ -10,9 +11,26 @@ csv_file_path = "../Baza/mega-data.csv"  # замени со вистински�
 json_file_path = "../Baza/issuer_names.json"  # замени со вистинскиот пат до JSON документот
 output_json="../Baza/last_dates.json"
 last_dates_json_path = "../Baza/last_dates.json"  # замени со вистинската патека до JSON документот
+def load_or_create_csv(csv_file):
+    # Ако папката не постои, креирај ја
+    folder = os.path.dirname(csv_file)
+    if folder and not os.path.exists(folder):
+        os.makedirs(folder)
+        print(f"Created folder: {folder}")
+
+    # Проверка дали датотеката постои
+    if not os.path.isfile(csv_file):
+        # Ако не постои, создади ја со потребните наслови
+        headers = ["code", "date", "open", "high", "low", "close", "change", "volume", "value1", "value2"]
+        pd.DataFrame(columns=headers).to_csv(csv_file, index=False)
+        print(f"Created CSV file with headers: {csv_file}")
+
+    # Учитај го CSV документот
+    csv_data = pd.read_csv(csv_file, header=0, names=["code", "date", "open", "high", "low", "close", "change", "volume", "value1", "value2"])
+    return csv_data
 
 def get_last_dates_for_firms(csv_file, json_file, output_json):
-    csv_data = pd.read_csv(csv_file, header=0, names=["code", "date", "open", "high", "low", "close", "change", "volume", "value1", "value2"])
+    csv_data = load_or_create_csv(csv_file)
     csv_data = csv_data[csv_data["date"].str.match(r"\d{2}\.\d{2}\.\d{4}")]
     csv_data["date"] = pd.to_datetime(csv_data["date"], format="%d.%m.%Y")
     csv_data = csv_data.sort_values(by=["code", "date"])
@@ -69,9 +87,9 @@ def Call_Filter_II():
     outdated_firms(last_dates_json_path)
     get_last_dates_for_firms(csv_file_path, json_file_path,output_json)
 
-# get_last_dates_for_firms(csv_file_path, json_file_path,output_json)
-# outdated_firms(last_dates_json_path)
-# get_last_dates_for_firms(csv_file_path, json_file_path,output_json)
+#get_last_dates_for_firms(csv_file_path, json_file_path,output_json)
+#outdated_firms(last_dates_json_path)
+#get_last_dates_for_firms(csv_file_path, json_file_path,output_json)
 
 
 

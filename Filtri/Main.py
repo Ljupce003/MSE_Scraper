@@ -1,6 +1,6 @@
 import time
+import Filter_I
 
-from Filtri import Filter_I
 
 start_time = time.time()
 
