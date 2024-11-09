@@ -31,7 +31,7 @@ def Call_Filter_1():
     issuer_data = [{"id": idx + 1, "name": name} for idx, name in enumerate(issuer_names)]
 
     # Запишување на листата со ID и имиња во JSON фајл
-    with open("../Baza/issuer_names.json", "w") as file:
+    with open("../Baza/Example_data/issuer_names.json", "w") as file:
         json.dump(issuer_data, file, indent=4)
     print("issuer_names data appended")
     Filter_II.Call_Filter_II()
