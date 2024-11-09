@@ -7,10 +7,10 @@ import json
 
 from dateutil.relativedelta import relativedelta
 
-csv_file_path = "../Example_data/mega-data.csv"  # замени со вистинскиот пат до CSV документот
-json_file_path = "../Example_data/issuer_names.json"  # замени со вистинскиот пат до JSON документот
+csv_file_path = "../Baza/mega-data.csv"  # замени со вистинскиот пат до CSV документот
+json_file_path = "../Baza/issuer_names.json"  # замени со вистинскиот пат до JSON документот
 output_json="../Baza/last_dates.json"
-last_dates_json_path = "../Example_data/last_dates.json"  # замени со вистинската патека до JSON документот
+last_dates_json_path = "../Baza/last_dates.json"  # замени со вистинската патека до JSON документот
 def load_or_create_csv(csv_file):
     # Ако папката не постои, креирај ја
     folder = os.path.dirname(csv_file)
