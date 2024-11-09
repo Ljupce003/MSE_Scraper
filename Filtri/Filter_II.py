@@ -50,7 +50,7 @@ def get_last_dates_for_firms(csv_file, json_file, output_json):
             last_date = firm_data["date"].max().strftime("%d.%m.%Y")
             last_dates.append({"code": code, "last_date": last_date})
         else:
-            # Ако нема податоци, стави None за последната дата
+            # Ако нема податоци, стави последната дата да е од пред 10 години
             today = datetime.today()
             date_10_years_ago = today - relativedelta(years=10)
             last_dates.append({"code": code, "last_date": date_10_years_ago.strftime("%d.%m.%Y")})
