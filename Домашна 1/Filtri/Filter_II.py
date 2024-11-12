@@ -1,95 +1,66 @@
 import os
 import pandas as pd
-import Filter_III
-from datetime import datetime
-
 import json
-
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
+import Filter_III
 
-csv_file_path = "../Baza/mega-data.csv"  # замени со вистинскиот пат до CSV документот
-json_file_path = "../Baza/issuer_names.json"  # замени со вистинскиот пат до JSON документот
-output_json="../Baza/last_dates.json"
-last_dates_json_path = "../Baza/last_dates.json"  # замени со вистинската патека до JSON документот
+csv_file_path = "../Baza/mega-data.csv"
+json_file_path = "../Baza/issuer_names.json"
+output_json = "../Baza/last_dates.json"
+
 def load_or_create_csv(csv_file):
-    # Ако папката не постои, креирај ја
     folder = os.path.dirname(csv_file)
     if folder and not os.path.exists(folder):
         os.makedirs(folder)
         print(f"Created folder: {folder}")
 
-    # Проверка дали датотеката постои
     if not os.path.isfile(csv_file):
-        # Ако не постои, создади ја со потребните наслови
         headers = ["code", "date", "open", "high", "low", "close", "change", "volume", "value1", "value2"]
         pd.DataFrame(columns=headers).to_csv(csv_file, index=False)
-        print(f"Created CSV file with headers: {csv_file}")
+        print(f"Created CSV file: {csv_file}")
 
-    # Учитај го CSV документот
-    csv_data = pd.read_csv(csv_file, header=0, names=["code", "date", "open", "high", "low", "close", "change", "volume", "value1", "value2"])
-    return csv_data
+    return pd.read_csv(csv_file, header=0, names=["code", "date", "open", "high", "low", "close", "change", "volume", "value1", "value2"])
 
 def get_last_dates_for_firms(csv_file, json_file, output_json):
     csv_data = load_or_create_csv(csv_file)
-    csv_data = csv_data[csv_data["date"].str.match(r"\d{2}\.\d{2}\.\d{4}")]
-    csv_data["date"] = pd.to_datetime(csv_data["date"], format="%d.%m.%Y")
+    csv_data["date"] = pd.to_datetime(csv_data["date"], errors='coerce', format="%d.%m.%Y")
     csv_data = csv_data.sort_values(by=["code", "date"])
 
     with open(json_file, "r", encoding="utf-8") as file:
         json_data = json.load(file)
 
     last_dates = []
-
-    # За секоја шифра во JSON документот, најди ја последната дата од CSV документот
     for firm in json_data:
         code = firm["name"]
         firm_data = csv_data[csv_data["code"] == code]
 
-        # Ако има податоци за таа шифра, земи ја последната дата
         if not firm_data.empty:
             last_date = firm_data["date"].max().strftime("%d.%m.%Y")
-            last_dates.append({"code": code, "last_date": last_date})
         else:
-            # Ако нема податоци, стави последната дата да е од пред 10 години
-            today = datetime.today()
-            date_10_years_ago = today - relativedelta(years=10)
-            last_dates.append({"code": code, "last_date": date_10_years_ago.strftime("%d.%m.%Y")})
+            date_10_years_ago = (datetime.today() - relativedelta(years=10)).strftime("%d.%m.%Y")
+            last_date = date_10_years_ago
 
-    # Запиши ги резултатите во нов JSON документ
+        last_dates.append({"code": code, "last_date": last_date})
+
     with open(output_json, "w", encoding="utf-8") as file:
         json.dump(last_dates, file, ensure_ascii=False, indent=4)
-
-    print(f"Резултатите се запишани во {output_json}")
-    return last_dates
-
-
-
+    print(f"Last dates saved to {output_json}.")
 
 def outdated_firms(last_dates_json):
-    # Учитај ги податоците од JSON документот
     with open(last_dates_json, "r", encoding="utf-8") as file:
         last_dates_data = json.load(file)
 
-    # Дефинирај ја денешната дата во формат "дд.мм.гггг"
     today = datetime.today().strftime("%d.%m.%Y")
-
-    # Провери која шифра има последна дата различна од денешната и испечати ги тие информации
     for entry in last_dates_data:
         code = entry["code"]
         last_date = entry["last_date"]
 
         if last_date and last_date != today:
-            print(f"Шифра: {code}, Последна дата: {last_date}, Денешна дата: {today}")
+            print(f"Code: {code}, Last Date: {last_date}, Today's Date: {today}")
             Filter_III.Call_save_data_from_to(code, last_date, today)
 
 def Call_Filter_II():
-    get_last_dates_for_firms(csv_file_path, json_file_path,output_json)
-    outdated_firms(last_dates_json_path)
-    get_last_dates_for_firms(csv_file_path, json_file_path,output_json)
-
-#get_last_dates_for_firms(csv_file_path, json_file_path,output_json)
-#outdated_firms(last_dates_json_path)
-#get_last_dates_for_firms(csv_file_path, json_file_path,output_json)
-
-
+    get_last_dates_for_firms(csv_file_path, json_file_path, output_json)
+    outdated_firms(output_json)
 
