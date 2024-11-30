@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Македонска берза - техничка анализа</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <img src="/images/logo.png" width="70px" height="60px">
+        <h1>МАКЕДОНСКА БЕРЗА</h1>
+      </div>
+      <menu>
+        <ul>
+          <li><a href="/index">Почетна</a></li>
+          <li><a href="/tech_analysis">Техничка анализа</a></li>
+          <li class="active">
+            <a href="/fundamental">Фундаментална анализа</a>
+          </li>
+          <li><a href="/lstm">LSTM</a></li>
+        </ul>
+      </menu>
+    </header>
+
+    <section id="tech">
+      <center>
+        <select id="stockDropdown">
+          <option value="">Одбери акција</option>
+        </select>
+
+        <label for="fromDate">почетен датум:</label>
+        <input type="date" id="fromDate" />
+
+        <label for="toDate">краен датум:</label>
+        <input type="date" id="toDate" />
+        <br /><br />
+        <p>Според вестите:</p>
+        <span id="positive"><b>КУПИ</b></span>
+        <span id="negative"><b>ПРОДАДИ</b></span>
+      </center>
+      <br />
+      <div id="chartContainer" style="height: 600px; width: 100%"></div>
+    </section>
+    <script>
+      let positive = document.getElementById("positive"); //.style.color = "#0bca44"
+      let negative = document.getElementById("negative"); //.style.color = "red"
+
+      //positive.style.display = "none";
+      positive.style.color = "#0bca44";
+      negative.style.display = "none";
+    </script>
+    <script src="/js/chart.js"></script>
+  </body>
+</html>
