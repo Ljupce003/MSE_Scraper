@@ -12,12 +12,23 @@ import java.io.File;
 @RestController
 public class FileDownloadController {
 
+    private static final long MAX_WAIT_TIME = 10000;
+
     @GetMapping("/download/mega-data.csv")
     public ResponseEntity<FileSystemResource> downloadFile_csv() {
         // Replace with the actual path to the generated CSV file
         File file = new File("../MSE_Scraper/shared/mega-data.csv");
         if (!file.exists()) {
             return ResponseEntity.notFound().build();
+        }
+
+
+        long lastModifiedTime = file.lastModified();
+        long currentTime = System.currentTimeMillis();
+
+
+        if ((currentTime - lastModifiedTime) < MAX_WAIT_TIME) {
+            return ResponseEntity.status(400).body(null);
         }
 
         // Create the response headers

@@ -9,7 +9,20 @@
     <script>
         // This function triggers the download of the CSV file
         function downloadFile_csv() {
-            window.location.href = "/download/mega-data.csv";
+            // Attempt to download the CSV file
+            fetch('/download/mega-data.csv')
+                .then(response => {
+                    if (response.status === 400) {
+                        alert("Python script is still running. Please wait...");
+                    } else if (response.ok) {
+                        window.location.href = "/download/mega-data.csv";
+                    } else {
+                        alert("File not found or there was an error.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
         }
         function downloadFile_json() {
             window.location.href = "/download/issuer_names.json";
