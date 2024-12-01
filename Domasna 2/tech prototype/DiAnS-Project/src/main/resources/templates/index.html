@@ -5,8 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Македонска берза - почетна</title>
     <link rel="stylesheet" href="/css/style.css">
+
+    <script>
+        // This function triggers the download of the CSV file
+        function downloadFile_csv() {
+            window.location.href = "/download/mega-data.csv";
+        }
+        function downloadFile_json() {
+            window.location.href = "/download/issuer_names.json";
+        }
+
+    </script>
+
 </head>
 <body>
+
+
 
     <header>
         <div>
@@ -25,11 +39,11 @@
     <section id="front">
         <div class="sec">
             <p>За да ги превземете шифрите на сите наддавачи на македонската берза <br>кликнете на копчето „шифри“</p>
-            <button><a href="#">шифри</a></button>      
+            <button onclick="downloadFile_json()">шифри</button>
         </div>
         <div class="sec">
             <p>За да ги превземете историските дневни податоци за сите наддавачи на македонската берза <br> кликнете на копчето „превземи“</p>
-            <button><a href="#">превземи</a></button>
+            <button onclick="downloadFile_csv()">превземи</button>
         </div>
     </section>
     

@@ -86,9 +86,9 @@ section div button {
     font-size: 14px;
 }
 
-section div button a {
-    text-decoration: none;
+section div button {
     color: #000;
+    cursor: pointer;
 }
 
 section .chart {
