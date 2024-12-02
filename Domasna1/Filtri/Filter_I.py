@@ -43,7 +43,7 @@ def Call_Filter_1():
     if codes_by_tab:
         # Flatten all codes and assign unique IDs
         all_codes = [{"id": idx + 1, "name": code} for idx, code in enumerate(sum(codes_by_tab.values(), []))]
-        with open("../MSE_Scraper/shared/issuer_names.json", "w", encoding="utf-8") as file:
+        with open("../MSE_Scraper/Domasna 2/tech prototype/DiAnS-Project/src/main/resources/static/csv/issuer_names.json", "w", encoding="utf-8") as file:
             json.dump(all_codes, file, indent=4, ensure_ascii=False)
         print("Issuer codes saved to 'issuer_names.json'.")
     Filter_II.Call_Filter_II()

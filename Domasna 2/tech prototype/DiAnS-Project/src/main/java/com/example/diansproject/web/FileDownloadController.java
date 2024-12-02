@@ -17,11 +17,11 @@ public class FileDownloadController {
     @GetMapping("/download/mega-data.csv")
     public ResponseEntity<FileSystemResource> downloadFile_csv() {
         // Replace with the actual path to the generated CSV file
-        File file = new File("../MSE_Scraper/shared/mega-data.csv");
+        File file = new File("..\\MSE_Scraper\\Domasna 2\\tech prototype\\DiAnS-Project\\src\\main\\resources\\static\\csv\\mega-data.csv");
         if (!file.exists()) {
             return ResponseEntity.notFound().build();
         }
-
+//\MSE_Scraper
 
         long lastModifiedTime = file.lastModified();
         long currentTime = System.currentTimeMillis();
@@ -45,11 +45,10 @@ public class FileDownloadController {
     @GetMapping("/download/issuer_names.json")
     public ResponseEntity<FileSystemResource> downloadFile_json() {
         // Replace with the actual path to the generated CSV file
-        File file = new File("../MSE_Scraper/shared/issuer_names.json");
+        File file = new File("..\\MSE_Scraper\\Domasna 2\\tech prototype\\DiAnS-Project\\src\\main\\resources\\static\\csv\\issuer_names.json");
         if (!file.exists()) {
             return ResponseEntity.notFound().build();
         }
-
         // Create the response headers
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=issuer_names.json");

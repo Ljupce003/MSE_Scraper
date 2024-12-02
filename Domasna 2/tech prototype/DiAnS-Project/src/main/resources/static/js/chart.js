@@ -3,7 +3,7 @@ let stockCodes = []; // To store unique stock codes
 
 // Load CSV data from the local folder when the page loads
 window.onload = function () {
-  fetchCSVData("/csv/mega_data_example.csv"); // Adjust the filename as needed
+  fetchCSVData("/csv/mega-data.csv"); // Adjust the filename as needed
 };
 
 // Function to fetch CSV data from the local folder

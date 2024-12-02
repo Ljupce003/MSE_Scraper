@@ -56,5 +56,5 @@ def Call_save_data_from_to(firm_code, start_date, end_date):
         for column in ["open", "high", "low", "close"]:
             if column in data.columns:
                 data[column] = data[column].apply(lambda x: format_price(float(x.replace(',', '.'))))
-        data.to_csv('../MSE_Scraper/shared/mega-data.csv', mode='a', header=False, index=False)
+        data.to_csv('../MSE_Scraper/Domasna 2/tech prototype/DiAnS-Project/src/main/resources/static/csv/mega-data.csv', mode='a', header=False, index=False)
         print(f"Data for {firm_code} saved.")

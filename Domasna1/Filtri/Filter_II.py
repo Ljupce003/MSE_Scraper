@@ -5,9 +5,9 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import Filter_III
 
-csv_file_path = "../MSE_Scraper/shared/mega-data.csv"
-json_file_path = "../MSE_Scraper/shared/issuer_names.json"
-output_json = "../MSE_Scraper/shared/last_dates.json"
+csv_file_path = "../MSE_Scraper/Domasna 2/tech prototype/DiAnS-Project/src/main/resources/static/csv/mega-data.csv"
+json_file_path = "../MSE_Scraper/Domasna 2/tech prototype/DiAnS-Project/src/main/resources/static/csv/issuer_names.json"
+output_json = "../MSE_Scraper/Domasna 2/tech prototype/DiAnS-Project/src/main/resources/static/csv/last_dates.json"
 
 def load_or_create_csv(csv_file):
     folder = os.path.dirname(csv_file)
