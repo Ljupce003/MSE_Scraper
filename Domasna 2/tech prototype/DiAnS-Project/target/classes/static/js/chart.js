@@ -1,9 +1,9 @@
-let csvData = []; // To store the parsed CSV data
-let stockCodes = []; // To store unique stock codes
+let csvData = [];
+let stockCodes = [];
 
 // Load CSV data from the local folder when the page loads
 window.onload = function () {
-  fetchCSVData("/csv/mega-data.csv"); // Adjust the filename as needed
+  fetchCSVData("/csv/mega_data_example.csv");
 };
 
 // Function to fetch CSV data from the local folder
@@ -12,7 +12,7 @@ function fetchCSVData(fileName) {
     .then((response) => response.text())
     .then((csvText) => {
       Papa.parse(csvText, {
-        header: false, // Assuming no headers in the CSV
+        header: false,
         skipEmptyLines: true,
         complete: function (results) {
           csvData = results.data;
@@ -82,9 +82,10 @@ function updateChart() {
       toDate
     );
     renderChart(filteredData);
-  } else {
-    alert("Please select a stock code.");
   }
+  // else {
+  //   alert("Please select a stock code.");
+  // }
 }
 
 // Function to filter data based on stock code and date range

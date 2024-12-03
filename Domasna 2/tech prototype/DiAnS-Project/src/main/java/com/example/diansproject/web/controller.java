@@ -33,5 +33,4 @@ public class controller {
 
         return "lstm";
     }
-
 }

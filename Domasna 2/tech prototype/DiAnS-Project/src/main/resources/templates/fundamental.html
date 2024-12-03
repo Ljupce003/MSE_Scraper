@@ -39,6 +39,7 @@
         <input type="date" id="toDate" />
         <br /><br />
         <p>Според вестите:</p>
+        <span id="none"><b>Изберете акција за да видите што предвидуваат вестите!</b></span>
         <span id="positive"><b>КУПИ</b></span>
         <span id="negative"><b>ПРОДАДИ</b></span>
       </center>
@@ -46,12 +47,35 @@
       <div id="chartContainer" style="height: 600px; width: 100%"></div>
     </section>
     <script>
-      let positive = document.getElementById("positive"); //.style.color = "#0bca44"
-      let negative = document.getElementById("negative"); //.style.color = "red"
+      let positive = document.getElementById("positive").style.display="none";
+      let negative = document.getElementById("negative").style.display="none";
 
-      //positive.style.display = "none";
-      positive.style.color = "#0bca44";
-      negative.style.display = "none";
+      document.getElementById("stockDropdown").addEventListener("change", function () {
+        let none = document.getElementById("none");
+        let positive = document.getElementById("positive");
+        let negative = document.getElementById("negative");
+
+        none.style.display = "none";
+        positive.style.display = "none";
+        negative.style.display = "none";
+
+        if (this.value) {
+          const isPositive = Math.random() < 0.5;
+          const isNegative = Math.random() < 1;
+
+          if (isPositive) {
+            positive.style.display = "inline"; // Show "КУПИ"
+            positive.style.color = "#0bca44"
+          } else if(isNegative) {
+            negative.style.display = "inline"; // Show "ПРОДАДИ"
+            negative.style.color = "red"
+          }
+        } else {
+          none.style.display = "inline";
+          none.style.color = "#000"
+        }
+      });
+
     </script>
     <script src="/js/chart.js"></script>
   </body>

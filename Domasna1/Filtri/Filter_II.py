@@ -1,3 +1,4 @@
+
 import os
 import pandas as pd
 import json
@@ -63,4 +64,3 @@ def outdated_firms(last_dates_json):
 def Call_Filter_II():
     get_last_dates_for_firms(csv_file_path, json_file_path, output_json)
     outdated_firms(output_json)
-
