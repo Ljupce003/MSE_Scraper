@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Македонска берза - техничка анализа</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <img src="/images/logo.png" width="70px" height="60px">
+        <h1>МАКЕДОНСКА БЕРЗА</h1>
+      </div>
+      <menu>
+        <ul>
+          <li><a href="/index">Почетна</a></li>
+          <li class="active">
+            <a href="/tech_analysis">Техничка анализа</a>
+          </li>
+          <li><a href="/fundamental">Фундаментална анализа</a></li>
+          <li><a href="/lstm">LSTM</a></li>
+        </ul>
+      </menu>
+    </header>
+
+    <section id="tech">
+      <center>
+        <form action="/techanalysis" method="POST">
+          <select name="sif" id="stockDropdown">
+            <option value="">Одбери акција</option>
+            <option th:each="sifra : ${sifri}"  th:text="${sifra}" th:value="${sifra}"></option>
+          </select>
+
+          <label for="fromDate">почетен датум:</label>
+          <input type="date" id="fromDate" name="fromDate" />
+
+          <label for="toDate">краен датум:</label>
+          <input type="date" id="toDate" name="toDate" />
+          <input type="submit" value="Submit">
+        </form>
+
+      </center>
+      <br />
+
+      <div id="chartContainer" style="height: 650px; width: 100%"></div>
+    </section>
+
+
+    <script src="/js/chart.js"></script>
+
+    <script th:inline="javascript">
+      // Thymeleaf ќе го вметне JSON-от како стринг
+      const csvData = /*[[${csvData}]]*/ '[]';
+      console.log("CSV Data:", csvData); // Провери во конзолата дали податокот е правилно пренесен
+
+      // Парсирај го JSON-от
+      const parsedData = JSON.parse(csvData);
+      console.log("Parsed Data:", parsedData);
+
+      // Потоа продолжи со обработката
+      const filteredData = filterDataByStockCode(parsedData);
+      renderChart(filteredData);
+    </script>
+
+
+  </body>
+</html>
