@@ -1,686 +1,857 @@
 [
     {
-        "Шифра на ХВ": "ADIN",
-        "Опис на ХВ": "Адинг Скопје"
+        "Issuer code": "ADIN",
+        "Issuer name": "Адинг Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ADIN"
     },
     {
-        "Шифра на ХВ": "ALK",
-        "Опис на ХВ": "Алкалоид Скопје"
+        "Issuer code": "ALK",
+        "Issuer name": "Алкалоид Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ALK"
     },
     {
-        "Шифра на ХВ": "GRNT",
-        "Опис на ХВ": "Гранит Скопје"
+        "Issuer code": "GRNT",
+        "Issuer name": "Гранит Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GRNT"
     },
     {
-        "Шифра на ХВ": "INB",
-        "Опис на ХВ": "Шпаркасе банка Македонија АД Скопје"
+        "Issuer code": "INB",
+        "Issuer name": "Шпаркасе банка Македонија АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/INB"
     },
     {
-        "Шифра на ХВ": "KMB",
-        "Опис на ХВ": "Комерцијална банка Скопје"
+        "Issuer code": "KMB",
+        "Issuer name": "Комерцијална банка Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KMB"
     },
     {
-        "Шифра на ХВ": "MPT",
-        "Опис на ХВ": "Макпетрол Скопје"
+        "Issuer code": "MPT",
+        "Issuer name": "Макпетрол Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MPT"
     },
     {
-        "Шифра на ХВ": "MTUR",
-        "Опис на ХВ": "Македонијатурист Скопје"
+        "Issuer code": "MTUR",
+        "Issuer name": "Македонијатурист Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MTUR"
     },
     {
-        "Шифра на ХВ": "OKTA",
-        "Опис на ХВ": "ОКТА Скопје"
+        "Issuer code": "OKTA",
+        "Issuer name": "ОКТА Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/OKTA"
     },
     {
-        "Шифра на ХВ": "REPL",
-        "Опис на ХВ": "Реплек Скопје"
+        "Issuer code": "REPL",
+        "Issuer name": "Реплек Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/REPL"
     },
     {
-        "Шифра на ХВ": "SBT",
-        "Опис на ХВ": "Стопанска банка Битола"
+        "Issuer code": "SBT",
+        "Issuer name": "Стопанска банка Битола",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SBT"
     },
     {
-        "Шифра на ХВ": "STB",
-        "Опис на ХВ": "Стопанска банка Скопје"
+        "Issuer code": "STB",
+        "Issuer name": "Стопанска банка Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/STB"
     },
     {
-        "Шифра на ХВ": "STIL",
-        "Опис на ХВ": "Макстил Скопје"
+        "Issuer code": "STIL",
+        "Issuer name": "Макстил Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/STIL"
     },
     {
-        "Шифра на ХВ": "TEL",
-        "Опис на ХВ": "Македонски Телеком Скопје"
+        "Issuer code": "TEL",
+        "Issuer name": "Македонски Телеком Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TEL"
     },
     {
-        "Шифра на ХВ": "TNB",
-        "Опис на ХВ": "НЛБ Банка АД Скопје"
+        "Issuer code": "TNB",
+        "Issuer name": "НЛБ Банка АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TNB"
     },
     {
-        "Шифра на ХВ": "TTK",
-        "Опис на ХВ": "ТТК Банка АД Скопје"
+        "Issuer code": "TTK",
+        "Issuer name": "ТТК Банка АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TTK"
     },
     {
-        "Шифра на ХВ": "UNI",
-        "Опис на ХВ": "Универзална Инвестициона Банка Скопје"
+        "Issuer code": "UNI",
+        "Issuer name": "Универзална Инвестициона Банка Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/UNI"
     },
     {
-        "Шифра на ХВ": "EUHA",
-        "Опис на ХВ": "Еурохаус АД Скопје"
+        "Issuer code": "AUMK",
+        "Issuer name": "Аутомакедонија Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/AUMK"
     },
     {
-        "Шифра на ХВ": "FERS",
-        "Опис на ХВ": "Фершпед Скопје"
+        "Issuer code": "EUHA",
+        "Issuer name": "Еурохаус АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/EUHA"
     },
     {
-        "Шифра на ХВ": "INDI",
-        "Опис на ХВ": "Инекс Дрим Струга"
+        "Issuer code": "FERS",
+        "Issuer name": "Фершпед Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/FERS"
     },
     {
-        "Шифра на ХВ": "INEK",
-        "Опис на ХВ": "Инекс Горица Охрид"
+        "Issuer code": "INDI",
+        "Issuer name": "Инекс Дрим Струга",
+        "Issuer link": "https://www.mse.mk/mk/symbol/INDI"
     },
     {
-        "Шифра на ХВ": "KKFI",
-        "Опис на ХВ": "МКК Еуроникел 2005 АД Кавадарци"
+        "Issuer code": "INEK",
+        "Issuer name": "Инекс Горица Охрид",
+        "Issuer link": "https://www.mse.mk/mk/symbol/INEK"
     },
     {
-        "Шифра на ХВ": "PPIV",
-        "Опис на ХВ": "Прилепска Пиварница Прилеп"
+        "Issuer code": "KKFI",
+        "Issuer name": "МКК Еуроникел 2005 АД Кавадарци",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KKFI"
     },
     {
-        "Шифра на ХВ": "RZEK",
-        "Опис на ХВ": "РЖ Економика Скопје"
+        "Issuer code": "PPIV",
+        "Issuer name": "Прилепска Пиварница Прилеп",
+        "Issuer link": "https://www.mse.mk/mk/symbol/PPIV"
     },
     {
-        "Шифра на ХВ": "RZUS",
-        "Опис на ХВ": "РЖ Услуги Скопје"
+        "Issuer code": "RZEK",
+        "Issuer name": "РЖ Економика Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RZEK"
     },
     {
-        "Шифра на ХВ": "STBP",
-        "Опис на ХВ": "Стопанска банка Скопје"
+        "Issuer code": "RZUS",
+        "Issuer name": "РЖ Услуги Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RZUS"
     },
     {
-        "Шифра на ХВ": "TASK",
-        "Опис на ХВ": "Таска АД Кавадарци"
+        "Issuer code": "STBP",
+        "Issuer name": "Стопанска банка Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/STBP"
     },
     {
-        "Шифра на ХВ": "TETE",
-        "Опис на ХВ": "Тетекс Тетово"
+        "Issuer code": "TASK",
+        "Issuer name": "Таска АД Кавадарци",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TASK"
     },
     {
-        "Шифра на ХВ": "TIGA",
-        "Опис на ХВ": "Тигар Крива Паланка"
+        "Issuer code": "TETE",
+        "Issuer name": "Тетекс Тетово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TETE"
     },
     {
-        "Шифра на ХВ": "VITA",
-        "Опис на ХВ": "Витаминка Прилеп"
+        "Issuer code": "TIGA",
+        "Issuer name": "Тигар Крива Паланка",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TIGA"
     },
     {
-        "Шифра на ХВ": "ZPKO",
-        "Опис на ХВ": "ЗК Пелагонија Битола"
+        "Issuer code": "VITA",
+        "Issuer name": "Витаминка Прилеп",
+        "Issuer link": "https://www.mse.mk/mk/symbol/VITA"
     },
     {
-        "Шифра на ХВ": "ZSIL",
-        "Опис на ХВ": "ЗС Илинден Скопје"
+        "Issuer code": "ZPKO",
+        "Issuer name": "ЗК Пелагонија Битола",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ZPKO"
     },
     {
-        "Шифра на ХВ": "ALKB",
-        "Опис на ХВ": "Алкалоид Берово"
+        "Issuer code": "ZSIL",
+        "Issuer name": "ЗС Илинден Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ZSIL"
     },
     {
-        "Шифра на ХВ": "AMBR",
-        "Опис на ХВ": "АМ Брокер АД Скопје"
+        "Issuer code": "ALKB",
+        "Issuer name": "Алкалоид Берово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ALKB"
     },
     {
-        "Шифра на ХВ": "AMEH",
-        "Опис на ХВ": "Агромеханика Скопје"
+        "Issuer code": "AMBR",
+        "Issuer name": "АМ Брокер АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/AMBR"
     },
     {
-        "Шифра на ХВ": "APTK",
-        "Опис на ХВ": "Ангропромет-Тиквешанка Кавадарци"
+        "Issuer code": "AMEH",
+        "Issuer name": "Агромеханика Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/AMEH"
     },
     {
-        "Шифра на ХВ": "ATPP",
-        "Опис на ХВ": "АТП Пролетер Крива Паланка"
+        "Issuer code": "APTK",
+        "Issuer name": "Ангропромет-Тиквешанка Кавадарци",
+        "Issuer link": "https://www.mse.mk/mk/symbol/APTK"
     },
     {
-        "Шифра на ХВ": "AUMK",
-        "Опис на ХВ": "Аутомакедонија Скопје"
+        "Issuer code": "ATPP",
+        "Issuer name": "АТП Пролетер Крива Паланка",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ATPP"
     },
     {
-        "Шифра на ХВ": "BANA",
-        "Опис на ХВ": "Рудници Бањани Скопје"
+        "Issuer code": "BANA",
+        "Issuer name": "Рудници Бањани Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/BANA"
     },
     {
-        "Шифра на ХВ": "BGOR",
-        "Опис на ХВ": "Кристал 1923 АД Велес"
+        "Issuer code": "BGOR",
+        "Issuer name": "Кристал 1923 АД Велес",
+        "Issuer link": "https://www.mse.mk/mk/symbol/BGOR"
     },
     {
-        "Шифра на ХВ": "BIKF",
-        "Опис на ХВ": "Текстил Елма Прилеп"
+        "Issuer code": "BIKF",
+        "Issuer name": "Текстил Елма Прилеп",
+        "Issuer link": "https://www.mse.mk/mk/symbol/BIKF"
     },
     {
-        "Шифра на ХВ": "BIM",
-        "Опис на ХВ": "БИМ Свети Николе"
+        "Issuer code": "BIM",
+        "Issuer name": "БИМ Свети Николе",
+        "Issuer link": "https://www.mse.mk/mk/symbol/BIM"
     },
     {
-        "Шифра на ХВ": "BLTU",
-        "Опис на ХВ": "Благој Туфанов АД Радовиш - долгорочно суспендирано од котација"
+        "Issuer code": "BLTU",
+        "Issuer name": "Благој Туфанов АД Радовиш - долгорочно суспендирано од котација",
+        "Issuer link": "https://www.mse.mk/mk/symbol/BLTU"
     },
     {
-        "Шифра на ХВ": "CBNG",
-        "Опис на ХВ": "Црвени брегови Неготино"
+        "Issuer code": "CBNG",
+        "Issuer name": "Црвени брегови Неготино",
+        "Issuer link": "https://www.mse.mk/mk/symbol/CBNG"
     },
     {
-        "Шифра на ХВ": "CDHV",
-        "Опис на ХВ": "Централен депозитар за хартии од вредност"
+        "Issuer code": "CDHV",
+        "Issuer name": "Централен депозитар за хартии од вредност",
+        "Issuer link": "https://www.mse.mk/mk/symbol/CDHV"
     },
     {
-        "Шифра на ХВ": "CEVI",
-        "Опис на ХВ": "ФЗЦ 11 Октомври Куманово"
+        "Issuer code": "CEVI",
+        "Issuer name": "ФЗЦ 11 Октомври Куманово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/CEVI"
     },
     {
-        "Шифра на ХВ": "CKB",
-        "Опис на ХВ": "Централна кооперативна банка Скопје"
+        "Issuer code": "CKB",
+        "Issuer name": "Централна кооперативна банка Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/CKB"
     },
     {
-        "Шифра на ХВ": "CKBKO",
-        "Опис на ХВ": "Централна кооперативна банка АД Скопје - конвертибилни обврзници"
+        "Issuer code": "CKBKO",
+        "Issuer name": "Централна кооперативна банка АД Скопје - конвертибилни обврзници",
+        "Issuer link": "https://www.mse.mk/mk/symbol/CKBKO"
     },
     {
-        "Шифра на ХВ": "DEBA",
-        "Опис на ХВ": "Дебарски бањи Дебар"
+        "Issuer code": "DEBA",
+        "Issuer name": "Дебарски бањи Дебар",
+        "Issuer link": "https://www.mse.mk/mk/symbol/DEBA"
     },
     {
-        "Шифра на ХВ": "DIMI",
-        "Опис на ХВ": "Димко Митрев Велес"
+        "Issuer code": "DIMI",
+        "Issuer name": "Димко Митрев Велес",
+        "Issuer link": "https://www.mse.mk/mk/symbol/DIMI"
     },
     {
-        "Шифра на ХВ": "EDST",
-        "Опис на ХВ": "Единство Струга"
+        "Issuer code": "EDST",
+        "Issuer name": "Единство Струга",
+        "Issuer link": "https://www.mse.mk/mk/symbol/EDST"
     },
     {
-        "Шифра на ХВ": "ELMA",
-        "Опис на ХВ": "Елмар Штип"
+        "Issuer code": "ELMA",
+        "Issuer name": "Елмар Штип",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ELMA"
     },
     {
-        "Шифра на ХВ": "ELNC",
-        "Опис на ХВ": "Еленица АД Струмица"
+        "Issuer code": "ELNC",
+        "Issuer name": "Еленица АД Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ELNC"
     },
     {
-        "Шифра на ХВ": "ENER",
-        "Опис на ХВ": "Енергомонт Скопје"
+        "Issuer code": "ENER",
+        "Issuer name": "Енергомонт Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ENER"
     },
     {
-        "Шифра на ХВ": "ENSA",
-        "Опис на ХВ": "Флекс брокер АД Скопје"
+        "Issuer code": "ENSA",
+        "Issuer name": "Флекс брокер АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ENSA"
     },
     {
-        "Шифра на ХВ": "EUMK",
-        "Опис на ХВ": "Еуромак брокер АД Скопје"
+        "Issuer code": "EUMK",
+        "Issuer name": "Еуромак брокер АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/EUMK"
     },
     {
-        "Шифра на ХВ": "EVRO",
-        "Опис на ХВ": "Европа Скопје"
+        "Issuer code": "EVRO",
+        "Issuer name": "Европа Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/EVRO"
     },
     {
-        "Шифра на ХВ": "FAKM",
-        "Опис на ХВ": "Факом Скопје"
+        "Issuer code": "FAKM",
+        "Issuer name": "Факом Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/FAKM"
     },
     {
-        "Шифра на ХВ": "FKTL",
-        "Опис на ХВ": "ФК Струга-Трим-Лум АД Струга"
+        "Issuer code": "FKTL",
+        "Issuer name": "ФК Струга-Трим-Лум АД Струга",
+        "Issuer link": "https://www.mse.mk/mk/symbol/FKTL"
     },
     {
-        "Шифра на ХВ": "FROT",
-        "Опис на ХВ": "Фротирка компани АД Делчево"
+        "Issuer code": "FROT",
+        "Issuer name": "Фротирка компани АД Делчево",
+        "Issuer link": "https://www.mse.mk/mk/symbol/FROT"
     },
     {
-        "Шифра на ХВ": "FUBT",
-        "Опис на ХВ": "Фустеларко Борец Битола"
+        "Issuer code": "FUBT",
+        "Issuer name": "Фустеларко Борец Битола",
+        "Issuer link": "https://www.mse.mk/mk/symbol/FUBT"
     },
     {
-        "Шифра на ХВ": "GALE",
-        "Опис на ХВ": "Галеб АД Охрид"
+        "Issuer code": "GALE",
+        "Issuer name": "Галеб АД Охрид",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GALE"
     },
     {
-        "Шифра на ХВ": "GDKM",
-        "Опис на ХВ": "ЗИК Градиште Куманово"
+        "Issuer code": "GDKM",
+        "Issuer name": "ЗИК Градиште Куманово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GDKM"
     },
     {
-        "Шифра на ХВ": "GECK",
-        "Опис на ХВ": "Герас Цунев конфекција Струмица"
+        "Issuer code": "GECK",
+        "Issuer name": "Герас Цунев конфекција Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GECK"
     },
     {
-        "Шифра на ХВ": "GECT",
-        "Опис на ХВ": "Герас Цунев трговија Струмица"
+        "Issuer code": "GECT",
+        "Issuer name": "Герас Цунев трговија Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GECT"
     },
     {
-        "Шифра на ХВ": "GIMS",
-        "Опис на ХВ": "Град. институт Македонија Скопје"
+        "Issuer code": "GIMS",
+        "Issuer name": "Град. институт Македонија Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GIMS"
     },
     {
-        "Шифра на ХВ": "GRDN",
-        "Опис на ХВ": "Градинар Охрид"
+        "Issuer code": "GRDN",
+        "Issuer name": "Градинар Охрид",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GRDN"
     },
     {
-        "Шифра на ХВ": "GRSN",
-        "Опис на ХВ": "Градинар Свети Николе"
+        "Issuer code": "GRSN",
+        "Issuer name": "Градинар Свети Николе",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GRSN"
     },
     {
-        "Шифра на ХВ": "GRZD",
-        "Опис на ХВ": "Грозд Струмица"
+        "Issuer code": "GRZD",
+        "Issuer name": "Грозд Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GRZD"
     },
     {
-        "Шифра на ХВ": "GTC",
-        "Опис на ХВ": "Градски Трговски Центар Скопје"
+        "Issuer code": "GTC",
+        "Issuer name": "Градски Трговски Центар Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GTC"
     },
     {
-        "Шифра на ХВ": "GTRG",
-        "Опис на ХВ": "Гетро Гостивар"
+        "Issuer code": "GTRG",
+        "Issuer name": "Гетро Гостивар",
+        "Issuer link": "https://www.mse.mk/mk/symbol/GTRG"
     },
     {
-        "Шифра на ХВ": "IJUG",
-        "Опис на ХВ": "Институт за заварув. Југ Скопје"
+        "Issuer code": "IJUG",
+        "Issuer name": "Институт за заварув. Југ Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/IJUG"
     },
     {
-        "Шифра на ХВ": "INHO",
-        "Опис на ХВ": "Интернешнел Хотелс АД Скопје"
+        "Issuer code": "INHO",
+        "Issuer name": "Интернешнел Хотелс АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/INHO"
     },
     {
-        "Шифра на ХВ": "INOV",
-        "Опис на ХВ": "Иново Брокер АД Скопје"
+        "Issuer code": "INOV",
+        "Issuer name": "Иново Брокер АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/INOV"
     },
     {
-        "Шифра на ХВ": "INPR",
-        "Опис на ХВ": "Интерпромет Тетово"
+        "Issuer code": "INPR",
+        "Issuer name": "Интерпромет Тетово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/INPR"
     },
     {
-        "Шифра на ХВ": "INTP",
-        "Опис на ХВ": "Капитал Банка Скопје"
+        "Issuer code": "INTP",
+        "Issuer name": "Капитал Банка Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/INTP"
     },
     {
-        "Шифра на ХВ": "JAKO",
-        "Опис на ХВ": "Јавор Консалтинг Битола"
+        "Issuer code": "JAKO",
+        "Issuer name": "Јавор Консалтинг Битола",
+        "Issuer link": "https://www.mse.mk/mk/symbol/JAKO"
     },
     {
-        "Шифра на ХВ": "JULI",
-        "Опис на ХВ": "Палпласт АД Куманово"
+        "Issuer code": "JULI",
+        "Issuer name": "Палпласт АД Куманово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/JULI"
     },
     {
-        "Шифра на ХВ": "JUSK",
-        "Опис на ХВ": "Југотутун Скопје"
+        "Issuer code": "JUSK",
+        "Issuer name": "Југотутун Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/JUSK"
     },
     {
-        "Шифра на ХВ": "KARO",
-        "Опис на ХВ": "Караорман Скопје"
+        "Issuer code": "KARO",
+        "Issuer name": "Караорман Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KARO"
     },
     {
-        "Шифра на ХВ": "KDFO",
-        "Опис на ХВ": "НЛБ Фондови АД Скопје"
+        "Issuer code": "KDFO",
+        "Issuer name": "НЛБ Фондови АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KDFO"
     },
     {
-        "Шифра на ХВ": "KJUBI",
-        "Опис на ХВ": "Македонија осигурување АД Скопје - Виена Иншуренс Груп"
+        "Issuer code": "KJUBI",
+        "Issuer name": "Македонија осигурување АД Скопје - Виена Иншуренс Груп",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KJUBI"
     },
     {
-        "Шифра на ХВ": "KKST",
-        "Опис на ХВ": "КК Струмица 2022 АД Струмица"
+        "Issuer code": "KKST",
+        "Issuer name": "КК Струмица 2022 АД Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KKST"
     },
     {
-        "Шифра на ХВ": "KLST",
-        "Опис на ХВ": "Кланица со ладилник Струмица"
+        "Issuer code": "KLST",
+        "Issuer name": "Кланица со ладилник Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KLST"
     },
     {
-        "Шифра на ХВ": "KMPR",
-        "Опис на ХВ": "Комунапроект Тетово"
+        "Issuer code": "KMPR",
+        "Issuer name": "Комунапроект Тетово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KMPR"
     },
     {
-        "Шифра на ХВ": "KOMU",
-        "Опис на ХВ": "ДС Смитх АД Скопје"
+        "Issuer code": "KOMU",
+        "Issuer name": "ДС Смитх АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KOMU"
     },
     {
-        "Шифра на ХВ": "KONF",
-        "Опис на ХВ": "Конзервна фабрика Струмица"
+        "Issuer code": "KONF",
+        "Issuer name": "Конзервна фабрика Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KONF"
     },
     {
-        "Шифра на ХВ": "KONZ",
-        "Опис на ХВ": "Фруктал МАК Скопје"
+        "Issuer code": "KONZ",
+        "Issuer name": "Фруктал МАК Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KONZ"
     },
     {
-        "Шифра на ХВ": "KORZ",
-        "Опис на ХВ": "Стоковна куќа Корзо Битола"
+        "Issuer code": "KORZ",
+        "Issuer name": "Стоковна куќа Корзо Битола",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KORZ"
     },
     {
-        "Шифра на ХВ": "KPSS",
-        "Опис на ХВ": "Карпош Скопје"
+        "Issuer code": "KPSS",
+        "Issuer name": "Карпош Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KPSS"
     },
     {
-        "Шифра на ХВ": "KULT",
-        "Опис на ХВ": "Култура АД Скопје"
+        "Issuer code": "KULT",
+        "Issuer name": "Култура АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KULT"
     },
     {
-        "Шифра на ХВ": "KVAS",
-        "Опис на ХВ": "Квасара Битола"
+        "Issuer code": "KVAS",
+        "Issuer name": "Квасара Битола",
+        "Issuer link": "https://www.mse.mk/mk/symbol/KVAS"
     },
     {
-        "Шифра на ХВ": "LAJO",
-        "Опис на ХВ": "Лајон Инс АД Скопје"
+        "Issuer code": "LAJO",
+        "Issuer name": "Лајон Инс АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/LAJO"
     },
     {
-        "Шифра на ХВ": "LHND",
-        "Опис на ХВ": "Лихнида Охрид"
+        "Issuer code": "LHND",
+        "Issuer name": "Лихнида Охрид",
+        "Issuer link": "https://www.mse.mk/mk/symbol/LHND"
     },
     {
-        "Шифра на ХВ": "LOTO",
-        "Опис на ХВ": "Лотарија на Македонија Скопје"
+        "Issuer code": "LOTO",
+        "Issuer name": "Лотарија на Македонија Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/LOTO"
     },
     {
-        "Шифра на ХВ": "LOZP",
-        "Опис на ХВ": "Пелистерка АД Скопје"
+        "Issuer code": "LOZP",
+        "Issuer name": "Пелистерка АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/LOZP"
     },
     {
-        "Шифра на ХВ": "MAGP",
-        "Опис на ХВ": "ФК Македонија Ѓорче Петров - 1932 АД Скопје"
+        "Issuer code": "MAGP",
+        "Issuer name": "ФК Македонија Ѓорче Петров - 1932 АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MAGP"
     },
     {
-        "Шифра на ХВ": "MAKP",
-        "Опис на ХВ": "Макпромет Штип"
+        "Issuer code": "MAKP",
+        "Issuer name": "Макпромет Штип",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MAKP"
     },
     {
-        "Шифра на ХВ": "MAKS",
-        "Опис на ХВ": "Макотекс Скопје"
+        "Issuer code": "MAKS",
+        "Issuer name": "Макотекс Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MAKS"
     },
     {
-        "Шифра на ХВ": "MB",
-        "Опис на ХВ": "Македонска берза АД Скопје"
+        "Issuer code": "MB",
+        "Issuer name": "Македонска берза АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MB"
     },
     {
-        "Шифра на ХВ": "MERM",
-        "Опис на ХВ": "Мермерен комбинат Прилеп"
+        "Issuer code": "MERM",
+        "Issuer name": "Мермерен комбинат Прилеп",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MERM"
     },
     {
-        "Шифра на ХВ": "MKSD",
-        "Опис на ХВ": "Макошпед Скопје"
+        "Issuer code": "MKSD",
+        "Issuer name": "Макошпед Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MKSD"
     },
     {
-        "Шифра на ХВ": "MLKR",
-        "Опис на ХВ": "Млекара АД Битола"
+        "Issuer code": "MLKR",
+        "Issuer name": "Млекара АД Битола",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MLKR"
     },
     {
-        "Шифра на ХВ": "MODA",
-        "Опис на ХВ": "Мода Свети Николе"
+        "Issuer code": "MODA",
+        "Issuer name": "Мода Свети Николе",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MODA"
     },
     {
-        "Шифра на ХВ": "MPOL",
-        "Опис на ХВ": "Хотели Метропол Охрид"
+        "Issuer code": "MPOL",
+        "Issuer name": "Хотели Метропол Охрид",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MPOL"
     },
     {
-        "Шифра на ХВ": "MPTE",
-        "Опис на ХВ": "Макпетрол-Теас АД Скопје"
+        "Issuer code": "MPTE",
+        "Issuer name": "Макпетрол-Теас АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MPTE"
     },
     {
-        "Шифра на ХВ": "MZHE",
-        "Опис на ХВ": "Вабтек МЗТ Скопје"
+        "Issuer code": "MZHE",
+        "Issuer name": "Вабтек МЗТ Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MZHE"
     },
     {
-        "Шифра на ХВ": "MZPU",
-        "Опис на ХВ": "МЗТ Пумпи Скопје"
+        "Issuer code": "MZPU",
+        "Issuer name": "МЗТ Пумпи Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/MZPU"
     },
     {
-        "Шифра на ХВ": "NEME",
-        "Опис на ХВ": "Огражден Струмица"
+        "Issuer code": "NEME",
+        "Issuer name": "Огражден Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/NEME"
     },
     {
-        "Шифра на ХВ": "NOSK",
-        "Опис на ХВ": "Нова стоковна куќа Струмица"
+        "Issuer code": "NOSK",
+        "Issuer name": "Нова стоковна куќа Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/NOSK"
     },
     {
-        "Шифра на ХВ": "OBPP",
-        "Опис на ХВ": "Полиса Плус АД Скопје"
+        "Issuer code": "OBPP",
+        "Issuer name": "Полиса Плус АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/OBPP"
     },
     {
-        "Шифра на ХВ": "OILK",
-        "Опис на ХВ": "Оилко КДА Скопје"
+        "Issuer code": "OILK",
+        "Issuer name": "Оилко КДА Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/OILK"
     },
     {
-        "Шифра на ХВ": "OMOS",
-        "Опис на ХВ": "Вега осигурување АД Скопје"
+        "Issuer code": "OMOS",
+        "Issuer name": "Вега осигурување АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/OMOS"
     },
     {
-        "Шифра на ХВ": "OPFO",
-        "Опис на ХВ": "Опфолио АД Скопје"
+        "Issuer code": "OPFO",
+        "Issuer name": "Опфолио АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/OPFO"
     },
     {
-        "Шифра на ХВ": "OPTK",
-        "Опис на ХВ": "Очна оптика Геталдус Скопје"
+        "Issuer code": "OPTK",
+        "Issuer name": "Очна оптика Геталдус Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/OPTK"
     },
     {
-        "Шифра на ХВ": "ORAN",
-        "Опис на ХВ": "Оранжерии Хамзали Струмица"
+        "Issuer code": "ORAN",
+        "Issuer name": "Оранжерии Хамзали Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ORAN"
     },
     {
-        "Шифра на ХВ": "OSPO",
-        "Опис на ХВ": "Осигурителна полиса Скопје"
+        "Issuer code": "OSPO",
+        "Issuer name": "Осигурителна полиса Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/OSPO"
     },
     {
-        "Шифра на ХВ": "OTEK",
-        "Опис на ХВ": "Отекс Охрид"
+        "Issuer code": "OTEK",
+        "Issuer name": "Отекс Охрид",
+        "Issuer link": "https://www.mse.mk/mk/symbol/OTEK"
     },
     {
-        "Шифра на ХВ": "PELK",
-        "Опис на ХВ": "Пелагонија Комерц АД Битола"
+        "Issuer code": "PELK",
+        "Issuer name": "Пелагонија Комерц АД Битола",
+        "Issuer link": "https://www.mse.mk/mk/symbol/PELK"
     },
     {
-        "Шифра на ХВ": "PGGV",
-        "Опис на ХВ": "Пелагонија Гостивар"
+        "Issuer code": "PGGV",
+        "Issuer name": "Пелагонија Гостивар",
+        "Issuer link": "https://www.mse.mk/mk/symbol/PGGV"
     },
     {
-        "Шифра на ХВ": "PKB",
-        "Опис на ХВ": "Пекабеско Скопје"
+        "Issuer code": "PKB",
+        "Issuer name": "Пекабеско Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/PKB"
     },
     {
-        "Шифра на ХВ": "POPK",
-        "Опис на ХВ": "Попова Кула Демир Капија"
+        "Issuer code": "POPK",
+        "Issuer name": "Попова Кула Демир Капија",
+        "Issuer link": "https://www.mse.mk/mk/symbol/POPK"
     },
     {
-        "Шифра на ХВ": "PROD",
-        "Опис на ХВ": "Просветно дело Скопје"
+        "Issuer code": "PROD",
+        "Issuer name": "Просветно дело Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/PROD"
     },
     {
-        "Шифра на ХВ": "PROT",
-        "Опис на ХВ": "Протектор АД Прилеп"
+        "Issuer code": "PROT",
+        "Issuer name": "Протектор АД Прилеп",
+        "Issuer link": "https://www.mse.mk/mk/symbol/PROT"
     },
     {
-        "Шифра на ХВ": "PTRS",
-        "Опис на ХВ": "Роман АД Прилеп"
+        "Issuer code": "PTRS",
+        "Issuer name": "Роман АД Прилеп",
+        "Issuer link": "https://www.mse.mk/mk/symbol/PTRS"
     },
     {
-        "Шифра на ХВ": "RADE",
-        "Опис на ХВ": "Раде Кончар Скопје"
+        "Issuer code": "RADE",
+        "Issuer name": "Раде Кончар Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RADE"
     },
     {
-        "Шифра на ХВ": "RIMI",
-        "Опис на ХВ": "РИМИ АД Штип"
+        "Issuer code": "RIMI",
+        "Issuer name": "РИМИ АД Штип",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RIMI"
     },
     {
-        "Шифра на ХВ": "RINS",
-        "Опис на ХВ": "Реинг Скопје"
+        "Issuer code": "RINS",
+        "Issuer name": "Реинг Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RINS"
     },
     {
-        "Шифра на ХВ": "RZIT",
-        "Опис на ХВ": "РЖ Интер-Трансшпед Скопје"
+        "Issuer code": "RZIT",
+        "Issuer name": "РЖ Интер-Трансшпед Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RZIT"
     },
     {
-        "Шифра на ХВ": "RZIZ",
-        "Опис на ХВ": "РЖ Скопје-Инженеринг Скопје"
+        "Issuer code": "RZIZ",
+        "Issuer name": "РЖ Скопје-Инженеринг Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RZIZ"
     },
     {
-        "Шифра на ХВ": "RZLE",
-        "Опис на ХВ": "АрцелорМиттал (ХРМ) АД Скопје - долгорочно суспендирано од котација"
+        "Issuer code": "RZLE",
+        "Issuer name": "АрцелорМиттал (ХРМ) АД Скопје - долгорочно суспендирано од котација",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RZLE"
     },
     {
-        "Шифра на ХВ": "RZLV",
-        "Опис на ХВ": "Либерти АД Скопје"
+        "Issuer code": "RZLV",
+        "Issuer name": "Либерти АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RZLV"
     },
     {
-        "Шифра на ХВ": "RZTK",
-        "Опис на ХВ": "РЖ Техничка контрола Скопје"
+        "Issuer code": "RZTK",
+        "Issuer name": "РЖ Техничка контрола Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RZTK"
     },
     {
-        "Шифра на ХВ": "RZUG",
-        "Опис на ХВ": "РЖ Уготур Скопје"
+        "Issuer code": "RZUG",
+        "Issuer name": "РЖ Уготур Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/RZUG"
     },
     {
-        "Шифра на ХВ": "SDOM",
-        "Опис на ХВ": "Современ дом Прилеп"
+        "Issuer code": "SDOM",
+        "Issuer name": "Современ дом Прилеп",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SDOM"
     },
     {
-        "Шифра на ХВ": "SIL",
-        "Опис на ХВ": "Силекс Кратово"
+        "Issuer code": "SIL",
+        "Issuer name": "Силекс Кратово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SIL"
     },
     {
-        "Шифра на ХВ": "SKON",
-        "Опис на ХВ": "Индустријал Струма АД Струмица"
+        "Issuer code": "SKON",
+        "Issuer name": "Индустријал Струма АД Струмица",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SKON"
     },
     {
-        "Шифра на ХВ": "SKP",
-        "Опис на ХВ": "Пивара Скопје АД Скопје"
+        "Issuer code": "SKP",
+        "Issuer name": "Пивара Скопје АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SKP"
     },
     {
-        "Шифра на ХВ": "SLAV",
-        "Опис на ХВ": "Славеј Скопје"
+        "Issuer code": "SLAV",
+        "Issuer name": "Славеј Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SLAV"
     },
     {
-        "Шифра на ХВ": "SNBT",
-        "Опис на ХВ": "СН Осигурителен брокер АД Битола"
+        "Issuer code": "SNBT",
+        "Issuer name": "СН Осигурителен брокер АД Битола",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SNBT"
     },
     {
-        "Шифра на ХВ": "SNBTO",
-        "Опис на ХВ": "СН Осигурителен Брокер АД Битола - корпоративна обврзница I емисија"
+        "Issuer code": "SNBTO",
+        "Issuer name": "СН Осигурителен Брокер АД Битола - корпоративна обврзница I емисија",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SNBTO"
     },
     {
-        "Шифра на ХВ": "SOLN",
-        "Опис на ХВ": "Солун 2001 Гевгелија"
+        "Issuer code": "SOLN",
+        "Issuer name": "Солун 2001 Гевгелија",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SOLN"
     },
     {
-        "Шифра на ХВ": "SPAZ",
-        "Опис на ХВ": "Скопски Пазар Скопје"
+        "Issuer code": "SPAZ",
+        "Issuer name": "Скопски Пазар Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SPAZ"
     },
     {
-        "Шифра на ХВ": "SPAZP",
-        "Опис на ХВ": "Скопски пазар Скопје"
+        "Issuer code": "SPAZP",
+        "Issuer name": "Скопски пазар Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SPAZP"
     },
     {
-        "Шифра на ХВ": "SPOL",
-        "Опис на ХВ": "Струмичко поле с.Василево"
+        "Issuer code": "SPOL",
+        "Issuer name": "Струмичко поле с.Василево",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SPOL"
     },
     {
-        "Шифра на ХВ": "SSPR",
-        "Опис на ХВ": "Сигурносно стакло Прилеп"
+        "Issuer code": "SSPR",
+        "Issuer name": "Сигурносно стакло Прилеп",
+        "Issuer link": "https://www.mse.mk/mk/symbol/SSPR"
     },
     {
-        "Шифра на ХВ": "STOK",
-        "Опис на ХВ": "Стокопромет Скопје"
+        "Issuer code": "STOK",
+        "Issuer name": "Стокопромет Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/STOK"
     },
     {
-        "Шифра на ХВ": "TAJM",
-        "Опис на ХВ": "Тајмиште АД Кичево - долгорочно суспендирано од котација"
+        "Issuer code": "TAJM",
+        "Issuer name": "Тајмиште АД Кичево - долгорочно суспендирано од котација",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TAJM"
     },
     {
-        "Шифра на ХВ": "TBKO",
-        "Опис на ХВ": "Сава осигурување АД Скопје"
+        "Issuer code": "TBKO",
+        "Issuer name": "Сава осигурување АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TBKO"
     },
     {
-        "Шифра на ХВ": "TEAL",
-        "Опис на ХВ": "ТЕАЛ-Алумина Тетово"
+        "Issuer code": "TEAL",
+        "Issuer name": "ТЕАЛ-Алумина Тетово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TEAL"
     },
     {
-        "Шифра на ХВ": "TEHN",
-        "Опис на ХВ": "Технокомерц Скопје"
+        "Issuer code": "TEHN",
+        "Issuer name": "Технокомерц Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TEHN"
     },
     {
-        "Шифра на ХВ": "TIKV",
-        "Опис на ХВ": "ГД-Тиквеш Кавадарци"
+        "Issuer code": "TIKV",
+        "Issuer name": "ГД-Тиквеш Кавадарци",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TIKV"
     },
     {
-        "Шифра на ХВ": "TKPR",
-        "Опис на ХВ": "Тутунски комбинат Прилеп"
+        "Issuer code": "TKPR",
+        "Issuer name": "Тутунски комбинат Прилеп",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TKPR"
     },
     {
-        "Шифра на ХВ": "TKVS",
-        "Опис на ХВ": "ВВ Тиквеш АД Кавадарци"
+        "Issuer code": "TKVS",
+        "Issuer name": "ВВ Тиквеш АД Кавадарци",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TKVS"
     },
     {
-        "Шифра на ХВ": "TRDB",
-        "Опис на ХВ": "Трудбеник АД Охрид - долгорочно суспендирано од котација"
+        "Issuer code": "TRDB",
+        "Issuer name": "Трудбеник АД Охрид - долгорочно суспендирано од котација",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TRDB"
     },
     {
-        "Шифра на ХВ": "TRPS",
-        "Опис на ХВ": "Транскоп-Патнички сооб. Битола"
+        "Issuer code": "TRPS",
+        "Issuer name": "Транскоп-Патнички сооб. Битола",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TRPS"
     },
     {
-        "Шифра на ХВ": "TRUB",
-        "Опис на ХВ": "Факул.-земјо. стопанство Трубарево АД с. Трубарево Скопје"
+        "Issuer code": "TRUB",
+        "Issuer name": "Факул.-земјо. стопанство Трубарево АД с. Трубарево Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TRUB"
     },
     {
-        "Шифра на ХВ": "TSMP",
-        "Опис на ХВ": "Трготекстил малопродажба Скопје"
+        "Issuer code": "TSMP",
+        "Issuer name": "Трготекстил малопродажба Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TSMP"
     },
     {
-        "Шифра на ХВ": "TSZS",
-        "Опис на ХВ": "Трготекстил заед. служ. Скопје"
+        "Issuer code": "TSZS",
+        "Issuer name": "Трготекстил заед. служ. Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/TSZS"
     },
     {
-        "Шифра на ХВ": "USJE",
-        "Опис на ХВ": "Цементарница УСЈЕ Скопје"
+        "Issuer code": "USJE",
+        "Issuer name": "Цементарница УСЈЕ Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/USJE"
     },
     {
-        "Шифра на ХВ": "VARG",
-        "Опис на ХВ": "Вардар Градско"
+        "Issuer code": "VARG",
+        "Issuer name": "Вардар Градско",
+        "Issuer link": "https://www.mse.mk/mk/symbol/VARG"
     },
     {
-        "Шифра на ХВ": "VFPM",
-        "Опис на ХВ": "ВФП Фонд Менаџмент АД Скопје"
+        "Issuer code": "VFPM",
+        "Issuer name": "ВФП Фонд Менаџмент АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/VFPM"
     },
     {
-        "Шифра на ХВ": "VROS",
-        "Опис на ХВ": "Триглав осигурување Скопје"
+        "Issuer code": "VROS",
+        "Issuer name": "Триглав осигурување Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/VROS"
     },
     {
-        "Шифра на ХВ": "VSC",
-        "Опис на ХВ": "Ветеринарно сточарски центар Куманово"
+        "Issuer code": "VSC",
+        "Issuer name": "Ветеринарно сточарски центар Куманово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/VSC"
     },
     {
-        "Шифра на ХВ": "VTKS",
-        "Опис на ХВ": "Ветекс Велес"
+        "Issuer code": "VTKS",
+        "Issuer name": "Ветекс Велес",
+        "Issuer link": "https://www.mse.mk/mk/symbol/VTKS"
     },
     {
-        "Шифра на ХВ": "ZAS",
-        "Опис на ХВ": "ЖАС Скопје"
+        "Issuer code": "ZAS",
+        "Issuer name": "ЖАС Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ZAS"
     },
     {
-        "Шифра на ХВ": "ZILU",
-        "Опис на ХВ": "Жито Лукс Скопје"
+        "Issuer code": "ZILU",
+        "Issuer name": "Жито Лукс Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ZILU"
     },
     {
-        "Шифра на ХВ": "ZILUP",
-        "Опис на ХВ": "Жито лукс Скопје"
+        "Issuer code": "ZILUP",
+        "Issuer name": "Жито лукс Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ZILUP"
     },
     {
-        "Шифра на ХВ": "ZIMS",
-        "Опис на ХВ": "ЗИМ Скопје"
+        "Issuer code": "ZIMS",
+        "Issuer name": "ЗИМ Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ZIMS"
     },
     {
-        "Шифра на ХВ": "ZKAR",
-        "Опис на ХВ": "Жито Караорман Кичево"
+        "Issuer code": "ZKAR",
+        "Issuer name": "Жито Караорман Кичево",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ZKAR"
     },
     {
-        "Шифра на ХВ": "ZPOG",
-        "Опис на ХВ": "Жито Полог Тетово"
+        "Issuer code": "ZPOG",
+        "Issuer name": "Жито Полог Тетово",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ZPOG"
     },
     {
-        "Шифра на ХВ": "ZUAS",
-        "Опис на ХВ": "ЗУАС АД Скопје"
+        "Issuer code": "ZUAS",
+        "Issuer name": "ЗУАС АД Скопје",
+        "Issuer link": "https://www.mse.mk/mk/symbol/ZUAS"
     }
 ]

@@ -3,6 +3,8 @@ package org.example.dians.Scraping;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+import org.example.dians.model.Issuer;
+import org.example.dians.model.RssItem;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -16,7 +18,7 @@ public class CSVtoJAVA {
 //
 
     public static List<List<Object>> Filter_Code(String cod) {
-        String filePath = "src/main/python/Smestuvanje/mega-data.csv";
+        String filePath = System.getProperty("user.dir") + "/Domasna3/dians/src/main/python/Smestuvanje/mega-data.csv";  //TODO Voa treba se smene ako frla error file not found
         List<List<Object>> csvData = new ArrayList<>();
 
         // Ако "cod" е празен, врати празен список
@@ -66,10 +68,10 @@ public class CSVtoJAVA {
             System.out.println(rowData);
         }
     }
-    public static Map<String, String> Codovi(){
+    public static Map<String, String> Codes_for_Dropdown(){
 
         // Патека до JSON фајлот
-        String filePath = "src/main/python/Smestuvanje/names.json";
+        String filePath = System.getProperty("user.dir") + "/Domasna3/dians/src/main/python/Smestuvanje/names.json";   //TODO Voa treba se smene ako frla error file not found
 
         // Креирај ObjectMapper
         ObjectMapper objectMapper = new ObjectMapper();
@@ -83,8 +85,8 @@ public class CSVtoJAVA {
             // Претворање во мапа
             for (Object obj : jsonData) {
                 Map<?, ?> record = (Map<?, ?>) obj; // Кастирање на секој објект во мапа
-                String key = (String) record.get("Шифра на ХВ");
-                String value = (String) record.get("Опис на ХВ");
+                String key = (String) record.get("Issuer code");
+                String value = (String) record.get("Issuer name");
                 hvMap.put(key, value);
             }
 
@@ -93,6 +95,60 @@ public class CSVtoJAVA {
         }
 
         return hvMap;
+    }
+
+    public static Map<String, String> AnalysisCodes(){
+
+        // Патека до JSON фајлот
+        String filePath = System.getProperty("user.dir") + "/Domasna3/dians/src/main/python/Smestuvanje/channels.json"; //TODO Voa treba se smene ako frla error file not found
+
+        // Креирај ObjectMapper
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, String> hvMap = new HashMap<>();
+
+
+        try {
+            // Читање на JSON како општа листа
+            List<?> jsonData = objectMapper.readValue(new File(filePath), List.class);
+
+            // Претворање во мапа
+            for (Object obj : jsonData) {
+                Map<?, ?> record = (Map<?, ?>) obj; // Кастирање на секој објект во мапа
+                String key = (String) record.get("code");
+                String value = (String) record.get("title");
+                hvMap.put(key, value);
+            }
+
+        } catch (IOException e) {
+            System.err.println("Грешка при читање на JSON фајлот за Фундаментална Анализа: " + e.getMessage());
+            System.err.println("Current Workdir is "+System.getProperty("user.dir"));
+
+        }
+
+        return hvMap;
+    }
+
+    public static Issuer GetAnalysisResultByCode(String code){
+        try {
+            String filePath = System.getProperty("user.dir") + "/Domasna3/dians/src/main/python/Smestuvanje/channels.json"; //TODO Voa treba se smene ako frla error file not found
+            // Parse JSON file
+            ObjectMapper mapper = new ObjectMapper();
+            Issuer[] dataArray = mapper.readValue(new File(filePath), Issuer[].class);
+
+            // Filter by code
+
+            Issuer returnIssuer=null;
+            for (Issuer data : dataArray) {
+                if (data.getCode().equals(code)) {
+                    returnIssuer=data;
+                    break;
+                }
+            }
+            return returnIssuer;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
@@ -104,11 +160,6 @@ public class CSVtoJAVA {
         List<List<Object>> novaData = new ArrayList<>();
         for (List<Object> rowData : list) {
             String parsData= rowData.get(1).toString();
-
-
-
-
-//            System.out.println("pars data "+parsData);
 
             Date date = new Date(0,0,0);
             // Форматот на датумот
@@ -127,10 +178,6 @@ public class CSVtoJAVA {
             if(date.before(from) && date.after(to)){
 
                 novaData.add(rowData);
-//                System.out.println("Data "+date.toString());
-//                System.out.println("From "+from);
-//                System.out.println("To "+to+"\n");
-
             }
 
         }

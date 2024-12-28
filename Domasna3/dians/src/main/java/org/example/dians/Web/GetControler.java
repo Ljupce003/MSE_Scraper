@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class GetControler {
     public GetControler() {
         PythonScriptRunner.runPythonScript();
+        PythonScriptRunner.runPythonScriptFundamentalAnalysis();
     }
 
     @GetMapping("/scr")
@@ -36,8 +37,7 @@ public class GetControler {
 
     @GetMapping("/tech_analysis")
     public String showTechPage(Model model) {
-        List<String> list = new ArrayList<>();
-        CSVtoJAVA.Codovi().keySet().forEach(key -> list.add(key));
+        List<String> list = new ArrayList<>(CSVtoJAVA.Codes_for_Dropdown().keySet());
         if(PythonRunnerFlag.flag){
             model.addAttribute("error","Python is Running");
         }
@@ -47,13 +47,15 @@ public class GetControler {
 
     @GetMapping("/fundamental")
     public String showFundamentalPage(Model model) {
-        List<String> list = new ArrayList<>();
         if(PythonRunnerFlag.flag){
             model.addAttribute("error","Python is Running");
         }
-        CSVtoJAVA.Codovi().keySet().forEach(key -> list.add(key));
+        if(PythonRunnerFlag.analysis_flag){
+            model.addAttribute("analysis_error","Fundamental Analysis is not finished");
+        }
+        List<String> list = new ArrayList<>(CSVtoJAVA.AnalysisCodes().keySet());
 
-        model.addAttribute("sifri",list.stream().sorted().collect(Collectors.toList()));
+        model.addAttribute("codes_dropdown",list.stream().sorted().collect(Collectors.toList()));
         return "fundamental";
     }
 

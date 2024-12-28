@@ -2,51 +2,43 @@ import time
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import pandas as pd
-from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-import sys
 import io
 import requests
 from bs4 import BeautifulSoup
 import re
 import json
 import os
+import sys
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 csv_file_path = "./Smestuvanje/mega-data.csv"
 json_file_path = "./Smestuvanje/issuer_names.json"
 output_json = "./Smestuvanje/last_dates.json"
-patjson="./Smestuvanje/issuer_names.json"
+patjson = "./Smestuvanje/issuer_names.json"
 url = "https://www.mse.mk/mk/stats/symbolhistory/ALK"
-pat="./Smestuvanje/mega-data.csv"
-
-
-
+pat = "./Smestuvanje/mega-data.csv"
 
 start_time = time.time()
-
-
-
-
 
 directory = './Smestuvanje'
 if not os.path.exists(directory):
     os.makedirs(directory)
-    print(f"Папката '{directory}' е создадена.")
-
+    print(f"Folder '{directory}' is created.")
 
 if not os.path.isfile(json_file_path):
-    print(f"Фајлот '{json_file_path}' не постои.")
+    print(f"Folder '{json_file_path}' does NOT exist")
 else:
     with open(json_file_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
-        print("Податоците се вчитани успешно.")
-
+        print("Data is read successfully")
 
 # URL на страницата
 url_base45 = "https://www.mse.mk/mk/stats/current-schedule"
+
+# Список за чување на податоци
+data12 = []
 
 # Параметри за различните категории
 categories = [
@@ -55,16 +47,32 @@ categories = [
     {"name": "Аукциско без ценовни ограничувања", "url": url_base45 + "?category=no-limit"}
 ]
 
-# Список за чување на податоци
-data12 = []
+
+def Call_Filter_1():
+    print("Filter 1 started")
+    url_local_in_method = 'https://www.mse.mk/mk/stats/current-schedule'
+    codes_by_tab = fetch_codes_from_tabs(url_local_in_method)
+    if codes_by_tab:
+        # Flatten all codes and assign unique IDs
+        all_codes = [{"id": idx + 1, "name": code} for idx, code in enumerate(sum(codes_by_tab.values(), []))]
+        with open(patjson, "w", encoding="utf-8") as file_local:
+            json.dump(all_codes, file_local, indent=4, ensure_ascii=False)
+        print("Issuer codes saved to 'issuer_names.json'.")
+    Call_Filter_II()
+
+
+def Call_Filter_II():
+    print("Filter 2 started")
+    get_last_dates_for_firms(csv_file_path, json_file_path, output_json)
+    Filter_III(output_json)
 
 
 # Функција за вчитување и извлекување на податоци од една категорија
-def fetch_data_from_category(url):
-    response = requests.get(url)
+def fetch_data_from_category(url_input):
+    response = requests.get(url_input)
 
     if response.status_code != 200:
-        print(f"Грешка при барање на страницата: {response.status_code}")
+        print(f'Error with reading page: {response.status_code}')
         return []
 
     soup1 = BeautifulSoup(response.content, 'html.parser')
@@ -82,23 +90,26 @@ def fetch_data_from_category(url):
             columns = row.find_all('td')
 
             if len(columns) >= 3:
-                # Извлекување на Шифра на ХВ и Опис на ХВ
+                # Извлекување на 'Issuer code' и Issuer name
                 code = columns[0].get_text(strip=True)
-                description = columns[1].get_text(strip=True)
+                name = columns[1].get_text(strip=True)
+                link = 'https://www.mse.mk'+columns[0].find('a').get('href') if columns[0].find('a') else None
 
-                # Проверка дали "Шифра на ХВ" не содржи бројки
+                # Проверка дали "Issuer code" не содржи бројки
                 if not re.search(r'\d', code):  # Проверка дали има бројки
                     category_data.append({
-                        'Шифра на ХВ': code,
-                        'Опис на ХВ': description
+                        'Issuer code': code,
+                        'Issuer name': name,
+                        'Issuer link': link
                     })
 
     return category_data
 
-def fachNames():
+
+def FetchNames():
     # Пребарување и собирање на податоци од сите категории
     for category in categories:
-        print(f"Вчитување на податоци за категоријата: {category['name']}")
+        print(f"Reading data for category: {category['name']}")
         category_data = fetch_data_from_category(category['url'])
         data12.extend(category_data)
     # Отстранување на дупликатите користејќи сет
@@ -106,11 +117,11 @@ def fachNames():
     seen = set()
 
     for item in data12:
-        code = item['Шифра на ХВ']
-        description = item['Опис на ХВ']
-        if (code, description) not in seen:
+        code = item['Issuer code']
+        name = item['Issuer name']
+        if (code, name) not in seen:
             unique_data.append(item)
-            seen.add((code, description))
+            seen.add((code, name))
 
     # Запишување на податоците во JSON фајл
     output_dir = './Smestuvanje'
@@ -121,11 +132,11 @@ def fachNames():
     print("Податоците успешно се зачувани во JSON.")
 
 
-def fetch_codes_from_tabs(url):
-    """Fetch the codes (Шифра на ХВ) from all three tabs on the page."""
-    response = requests.get(url)
+def fetch_codes_from_tabs(url_input):
+    """Fetch the codes (Issuer code) from all three tabs on the page."""
+    response = requests.get(url_input)
     if response.status_code != 200:
-        print(f"Failed to retrieve the page. Status code: {response.status_code}")
+        print(f'Failed to retrieve the page. Status code: {response.status_code}')
         return {}
 
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -144,44 +155,37 @@ def fetch_codes_from_tabs(url):
         for row in rows:
             columns = row.find_all('td')
             if columns:
-                code = columns[0].text.strip()  # Assuming Шифра на ХВ is in the first column
+                code = columns[0].text.strip()  # Assuming 'Issuer code' is in the first column
                 if code and not re.search(r'\d', code):  # Filter out codes containing numbers
                     codes.append(code)
         codes_by_tab[tab_names[i]] = codes
 
     return codes_by_tab
 
-def Call_Filter_1():
-    url = 'https://www.mse.mk/mk/stats/current-schedule'
-    codes_by_tab = fetch_codes_from_tabs(url)
-    if codes_by_tab:
-        # Flatten all codes and assign unique IDs
-        all_codes = [{"id": idx + 1, "name": code} for idx, code in enumerate(sum(codes_by_tab.values(), []))]
-        with open(patjson, "w", encoding="utf-8") as file:
-            json.dump(all_codes, file, indent=4, ensure_ascii=False)
-        print("Issuer codes saved to 'issuer_names.json'.")
-    Call_Filter_II()
 
 def load_or_create_csv(csv_file):
     folder = os.path.dirname(csv_file)
     if folder and not os.path.exists(folder):
         os.makedirs(folder)
-        print(f"Created folder: {folder}")
+        print(f'Created folder: {folder}')
 
     if not os.path.isfile(csv_file):
-        headers = ["code", "date", "close", "max", "low", "avg", "changePerc", "volume", "turnover in BEST", "total turnover"]
+        headers = ["code", "date", "close", "max", "low", "avg", "volume", "turnover in BEST", "total turnover"]
         pd.DataFrame(columns=headers).to_csv(csv_file, index=False)
-        print(f"Created CSV file: {csv_file}")
+        print(f'Created CSV file: {csv_file}')
 
-    return pd.read_csv(csv_file, header=0, names=["code", "date", "close", "max", "low", "avg", "changePerc", "volume", "turnover in BEST", "total turnover"])
+    return pd.read_csv(csv_file, header=0,
+                       names=["code", "date", "close", "max", "low", "avg", "volume", "turnover in BEST",
+                              "total turnover"])
 
-def get_last_dates_for_firms(csv_file, json_file, output_json):
+
+def get_last_dates_for_firms(csv_file, json_file, output_json_in):
     csv_data = load_or_create_csv(csv_file)
     csv_data["date"] = pd.to_datetime(csv_data["date"], errors='coerce', format="%d.%m.%Y")
     csv_data = csv_data.sort_values(by=["code", "date"])
 
-    with open(json_file, "r", encoding="utf-8") as file:
-        json_data = json.load(file)
+    with open(json_file, "r", encoding="utf-8") as file_local:
+        json_data = json.load(file_local)
 
     last_dates = []
     for firm in json_data:
@@ -190,19 +194,22 @@ def get_last_dates_for_firms(csv_file, json_file, output_json):
 
         if not firm_data.empty:
             last_date = firm_data["date"].max().strftime("%d.%m.%Y")
+
         else:
             date_10_years_ago = (datetime.today() - relativedelta(years=10)).strftime("%d.%m.%Y")
             last_date = date_10_years_ago
 
         last_dates.append({"code": code, "last_date": last_date})
 
-    with open(output_json, "w", encoding="utf-8") as file:
-        json.dump(last_dates, file, ensure_ascii=False, indent=4)
-    print(f"Last dates saved to {output_json}.")
+    with open(output_json_in, "w", encoding="utf-8") as file_local:
+        json.dump(last_dates, file_local, ensure_ascii=False, indent=4)
+    print(f'Last dates saved to {output_json_in}.')
 
-def outdated_firms(last_dates_json):
-    with open(last_dates_json, "r", encoding="utf-8") as file:
-        last_dates_data = json.load(file)
+
+def Filter_III(last_dates_json):
+    print("Filter 3 started")
+    with open(last_dates_json, "r", encoding="utf-8") as file_local:
+        last_dates_data = json.load(file_local)
 
     today = datetime.today().strftime("%d.%m.%Y")
     for entry in last_dates_data:
@@ -213,12 +220,12 @@ def outdated_firms(last_dates_json):
             print(f"Code: {code}, Last Date: {last_date}, Today's Date: {today}")
             Call_save_data_from_to(code, last_date, today)
 
-def Call_Filter_II():
-    get_last_dates_for_firms(csv_file_path, json_file_path, output_json)
-    outdated_firms(output_json)
+    print("Filter 3 finished")
+
 
 def format_price(price):
     return f"{price:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
 
 def fetch_data_for_period(firm_code, start_date, end_date):
     session = requests.Session()
@@ -229,17 +236,19 @@ def fetch_data_for_period(firm_code, start_date, end_date):
         table = soup.find('table')
         if table:
             rows = []
-            headers = [th.text.strip() for th in table.find_all('th')]
-            headers = ['date', "close", "max", "low", "avg", "changePerc", "volume", "turnover in BEST", "total turnover"]
-            #print(len(headers))
+            headers = ['date', "close", "max", "low", "avg", "volume", "turnover in BEST", "total turnover"]
+
             for tr in table.find_all('tr')[1:]:
                 cells = [td.text.strip() for td in tr.find_all('td')]
                 if cells:
-                    rows.append(cells)
-            data = pd.DataFrame(rows, columns=headers)
-            data.insert(0, "Issuer", firm_code)
-            return data
+                    if cells[2] and cells[3]:
+                        cells.pop(5)
+                        rows.append(cells)
+            data_out = pd.DataFrame(rows, columns=headers)
+            data_out.insert(0, "Issuer", firm_code)
+            return data_out
     return None
+
 
 def fetch_data_for_large_date_range(firm_code, start_date, end_date):
     all_data = []
@@ -253,7 +262,8 @@ def fetch_data_for_large_date_range(firm_code, start_date, end_date):
         current_start = next_end + timedelta(days=1)
 
     with ThreadPoolExecutor(max_workers=10) as executor:
-        futures = {executor.submit(fetch_data_for_period, firm_code, start, end): (start, end) for start, end in date_intervals}
+        futures = {executor.submit(fetch_data_for_period, firm_code, start, end): (start, end) for start, end in
+                   date_intervals}
         for future in as_completed(futures):
             result = future.result()
             if result is not None:
@@ -263,33 +273,36 @@ def fetch_data_for_large_date_range(firm_code, start_date, end_date):
         return pd.concat(all_data, ignore_index=True)
     return None
 
+
 def Call_save_data_from_to(firm_code, start_date, end_date):
     try:
-        data = fetch_data_for_large_date_range(firm_code, start_date, end_date)
-        if data is not None:
+        memory_data = fetch_data_for_large_date_range(firm_code, start_date, end_date)
+        if memory_data is not None:
             for column in ["close", "max", "low", "avg", "turnover in BEST", "total turnover"]:
-                if column in data.columns:
-                    data[column] = data[column].apply(lambda x: ReplaceDots(x))
-            #print(data)
-            data.drop_duplicates(subset=['Issuer', 'date'], inplace=True)
+                if column in memory_data.columns:
+                    memory_data[column] = memory_data[column].apply(lambda x: ChangeNumberFormat(x))
+                    memory_data[column] = memory_data[column].astype(str)
 
-            data.to_csv(pat, mode='a', header=False, index=False)
+            memory_data.drop_duplicates(subset=['Issuer', 'date'], inplace=True)
+            memory_data['date'] = pd.to_datetime(memory_data['date'], format='%d.%m.%Y')
+
+            memory_data.sort_values(by=["Issuer", "date"], inplace=True)
+
+            memory_data['date'] = memory_data['date'].dt.strftime('%d.%m.%Y')
+            memory_data.to_csv(pat, mode='a', header=False, index=False)
             print(f"Data for {firm_code} saved.")
+
     except BrokenPipeError as e:
         print(f"BrokenPipeError while processing {firm_code}: {e}")
     except Exception as e:
         print(f"Unexpected error while processing {firm_code}: {e}")
 
 
-# def Call_save_data_from_to(firm_code, start_date, end_date):
-#     data = fetch_data_for_large_date_range(firm_code, start_date, end_date)
-#     if data is not None:
-#         for column in ["close", "max", "low", "avg"]:
-#             if column in data.columns:
-#                 data[column] = data[column].apply(lambda x: format_price(float(x.replace(',', '.'))))
-#         data.to_csv(pat, mode='a', header=False, index=False, encoding="utf-8")
-#         print(f"Data for {firm_code} saved.")
-#
+def ChangeNumberFormat(price_string):
+    price_string = price_string.replace(".", "")
+    price_string = price_string.replace(",", ".")
+    return price_string
+
 
 def ReplaceDots(price_string):
     price_string = price_string.replace(".", "'")
@@ -299,9 +312,9 @@ def ReplaceDots(price_string):
 
 
 Call_Filter_1()
-fachNames()
+FetchNames()
 end_time = time.time()
 duration = end_time - start_time
 print(f"Program completed in {duration:.2f} seconds")
-import sys
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors="replace")
 sys.exit(0)
