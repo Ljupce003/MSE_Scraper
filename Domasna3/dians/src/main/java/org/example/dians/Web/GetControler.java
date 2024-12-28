@@ -6,6 +6,7 @@ import org.example.dians.Scraping.PythonScriptRunner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class GetControler {
     @GetMapping(path = {"/index","/"})
     public String showIndexPage(Model model) {
         if(PythonRunnerFlag.flag){
-            model.addAttribute("error","Python is Running ");
+            model.addAttribute("error","Fetching data...");
         }
         System.out.println(PythonRunnerFlag.flag);
 
@@ -39,7 +40,7 @@ public class GetControler {
     public String showTechPage(Model model) {
 
         if(PythonRunnerFlag.flag){
-            model.addAttribute("error","Python is Running");
+            model.addAttribute("error","Fetching data...");
         }
         return "tech_analysis";
     }
@@ -47,7 +48,7 @@ public class GetControler {
     @GetMapping("/fundamental")
     public String showFundamentalPage(Model model) {
         if(PythonRunnerFlag.flag){
-            model.addAttribute("error","Python is Running");
+            model.addAttribute("error","Fetching data...");
         }
         if(PythonRunnerFlag.analysis_flag){
             model.addAttribute("analysis_error","Fundamental Analysis is not finished");
@@ -61,9 +62,8 @@ public class GetControler {
     @GetMapping("/lstm")
     public String showLstmPage(Model model) {
         if(PythonRunnerFlag.flag){
-            model.addAttribute("error","Python is Running");
+            model.addAttribute("error","Fetching data...");
         }
         return "lstm";
     }
-
 }

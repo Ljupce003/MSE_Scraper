@@ -7,6 +7,32 @@
   <link rel="stylesheet" href="/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
   <!--    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>-->
+
+  <style>
+    .circle-loader {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    .loader-container {
+      display: none;
+    }
+
+    .loader-container.active {
+      display: block;
+      border: none;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
 </head>
 <body>
 <header>
@@ -28,10 +54,14 @@
 
 <section id="tech">
   <center>
+    <br>
     <input type="hidden" name="haveError" th:value="${error}!=null ? false : true ">
 
     <div th:text="${error}!=null ? ${error} : ''" >Greski se prikazuvat ovde</div>
     <div th:text="${analysis_error}!=null ? ${analysis_error} : ''" >Greski se prikazuvat ovde</div>
+    <div id="loader-container" class="loader-container" th:classappend="${error != null ? 'active' : ''}">
+      <div class="circle-loader"></div>
+    </div>
 
     <form action="/fundamental" method="POST">
       <select name="code" id="stockDropdown">
@@ -39,7 +69,7 @@
         <option  th:each="sifra : ${codes_dropdown}" th:text="${sifra}" th:value="${sifra}"></option>
       </select>
 
-      <input type="submit" value="Submit">
+      <input class="button" type="submit" value="превземи">
     </form>
     <br />
 
@@ -156,5 +186,7 @@
 <!--      const filteredData = filterDataByStockCode(parsedData);-->
 <!--      renderChart(filteredData);-->
 <!--    </script>-->
+
+<script src="/js/autoRefresh.js"></script>
 </body>
 </html>

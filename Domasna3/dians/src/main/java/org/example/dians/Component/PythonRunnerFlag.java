@@ -11,7 +11,6 @@ public class PythonRunnerFlag {
     public PythonRunnerFlag() {
         flag = false;
         analysis_flag=false;
-
     }
 
     public static boolean flag;

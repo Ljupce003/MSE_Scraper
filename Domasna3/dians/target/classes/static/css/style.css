@@ -11,6 +11,11 @@ body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+button{
+    cursor: pointer;
+
+}
+
 header div {
     display: flex;
     justify-content: center;
@@ -64,7 +69,6 @@ header menu ul li a {
     border-top-right-radius: 20px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
     justify-content: center;
     align-items: center;
     padding-bottom: 20px;
@@ -178,4 +182,20 @@ label {
     width: 100px;
     margin-right: 10px;
     margin-left: 10px;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.button{
+    padding: 10px;
+    background-color: #eed92b;
+    border: none;
+    border-radius: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    cursor: pointer;
 }

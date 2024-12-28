@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Македонска берза - почетна</title>
-    <link rel="stylesheet" href="/css/style.css">\
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/autoRefresh.js"></script>
+
 
     <style>
         .disabled {
@@ -12,80 +14,32 @@
             opacity: 0.5;
             cursor: not-allowed;
         }
+
+        .circle-loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-container {
+            display: none;
+            text-align: center;
+        }
+
+        .loader-container.active {
+            display: block;
+            border: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
     </style>
-
-    <script>
-        var jsonPath = "/download/names.json";
-
-        function downloadFile_csv() {
-            window.location.href = "/download/mega-data.csv";
-        }
-
-        function downloadFile_json() {
-            window.location.href = "/download/issuer_names.json";
-        }
-
-        window.onload = function () {
-            loadJSON();
-        };
-
-        function loadJSON() {
-
-            fetch(jsonPath)
-                .then(function (response) {
-
-                    if (!response.ok) {
-                        throw new Error("" + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(function (jsonData) {
-                    if (!Array.isArray(jsonData)) {
-                        document.getElementById("tableContainer").innerHTML =
-                            "<p style='color: red;'>JSON must be an array of objects!</p>";
-                        return;
-                    }
-
-                    // Clear existing content
-                    var tableContainer = document.getElementById("tableContainer");
-                    tableContainer.innerHTML = "";
-
-                    // Create the table
-                    var table = document.createElement("table");
-                    var thead = document.createElement("thead");
-                    var tbody = document.createElement("tbody");
-
-                    // Generate table headers (from the first object's keys)
-                    var headers = Object.keys(jsonData[0]);
-                    var headerRow = document.createElement("tr");
-                    headers.forEach(function (header) {
-                        var th = document.createElement("th");
-                        th.textContent = header;
-                        headerRow.appendChild(th);
-                    });
-                    thead.appendChild(headerRow);
-
-                    // Generate table rows
-                    jsonData.forEach(function (item) {
-                        var row = document.createElement("tr");
-                        headers.forEach(function (header) {
-                            var cell = document.createElement("td");
-                            cell.textContent = item[header] || "";
-                            row.appendChild(cell);
-                        });
-                        tbody.appendChild(row);
-                    });
-
-                    table.appendChild(thead);
-                    table.appendChild(tbody);
-                    tableContainer.appendChild(table);
-                })
-                .catch(function (error) {
-                    document.getElementById("tableContainer").innerHTML =
-                        "<p style='color: red;'>" + error.message + "</p>";
-                });
-        }
-    </script>
 
 </head>
 <body>
@@ -105,27 +59,32 @@
     </header>
     <section id="front">
         <input type="hidden" name="haveError" th:value="${error}!=null ? false : true ">
-        <div th:text="${error}!=null ? ${error} : '' " id="errorDiv" >
-            Greski se prikazuvat ovde
+        <div th:text="${error}!=null ? ${error} : '' " id="errorDiv" >Greski se prikazuvat ovde</div>
+        <div id="loader-container" class="loader-container" th:classappend="${error != null ? 'active' : ''}">
+            <div class="circle-loader"></div>
         </div>
 
+
         <div id="tableContainer"></div>
+        <br>
         <div class="sec">
             <p>За да ги превземете шифрите на сите наддавачи на македонската берза <br>кликнете на копчето „шифри“</p>
             <button id="jsonButton"
                     th:classappend="${error} ? 'disabled' : ''"
-                    onclick="downloadFile_json()">шифри
+                    onclick="window.location.href = '/download/issuer_names.json'">шифри
             </button>
         </div>
+        <br>
         <div class="sec">
             <p>За да ги превземете историските дневни податоци за сите наддавачи на македонската берза <br> кликнете на копчето „превземи“</p>
 
             <button id="csvButton"
                     th:classappend="${error} ? 'disabled' : ''"
-                    onclick="downloadFile_csv()">превземи
+                    onclick="window.location.href = '/download/mega-data.csv'">превземи
             </button>
         </div>
     </section>
 
+    <script src="/js/issuersTable.js"></script>
 </body>
 </html>
