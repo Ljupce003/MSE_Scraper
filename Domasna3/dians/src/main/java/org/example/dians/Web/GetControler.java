@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class GetControler {
     public GetControler() {
         PythonScriptRunner.runPythonScript();
-        PythonScriptRunner.runPythonScriptFundamentalAnalysis();
+        //PythonScriptRunner.runPythonScriptFundamentalAnalysis();
     }
 
     @GetMapping("/scr")
@@ -28,7 +28,7 @@ public class GetControler {
     @GetMapping(path = {"/index","/"})
     public String showIndexPage(Model model) {
         if(PythonRunnerFlag.flag){
-            model.addAttribute("error","Python is Running");
+            model.addAttribute("error","Python is Running ");
         }
         System.out.println(PythonRunnerFlag.flag);
 
@@ -37,11 +37,10 @@ public class GetControler {
 
     @GetMapping("/tech_analysis")
     public String showTechPage(Model model) {
-        List<String> list = new ArrayList<>(CSVtoJAVA.Codes_for_Dropdown().keySet());
+
         if(PythonRunnerFlag.flag){
             model.addAttribute("error","Python is Running");
         }
-        model.addAttribute("sifri",list.stream().sorted().collect(Collectors.toList()));
         return "tech_analysis";
     }
 

@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Македонска берза - почетна</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">\
+
+    <style>
+        .disabled {
+            pointer-events: none;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
 
     <script>
-        var jsonPath = "/json/names.json";
+        var jsonPath = "/download/names.json";
 
         function downloadFile_csv() {
             window.location.href = "/download/mega-data.csv";
@@ -16,8 +24,6 @@
         function downloadFile_json() {
             window.location.href = "/download/issuer_names.json";
         }
-
-
 
         window.onload = function () {
             loadJSON();
@@ -29,7 +35,7 @@
                 .then(function (response) {
 
                     if (!response.ok) {
-                        throw new Error("Error fetching JSON: " + response.statusText);
+                        throw new Error("" + response.statusText);
                     }
                     return response.json();
                 })
@@ -99,20 +105,27 @@
     </header>
     <section id="front">
         <input type="hidden" name="haveError" th:value="${error}!=null ? false : true ">
-        <div th:text="${error}!=null ? ${error} : '' " >
+        <div th:text="${error}!=null ? ${error} : '' " id="errorDiv" >
             Greski se prikazuvat ovde
         </div>
 
         <div id="tableContainer"></div>
         <div class="sec">
             <p>За да ги превземете шифрите на сите наддавачи на македонската берза <br>кликнете на копчето „шифри“</p>
-            <button onclick="downloadFile_json()">шифри</button>
+            <button id="jsonButton"
+                    th:classappend="${error} ? 'disabled' : ''"
+                    onclick="downloadFile_json()">шифри
+            </button>
         </div>
         <div class="sec">
             <p>За да ги превземете историските дневни податоци за сите наддавачи на македонската берза <br> кликнете на копчето „превземи“</p>
-            <button onclick="downloadFile_csv()">превземи</button>
+
+            <button id="csvButton"
+                    th:classappend="${error} ? 'disabled' : ''"
+                    onclick="downloadFile_csv()">превземи
+            </button>
         </div>
     </section>
-    
+
 </body>
 </html>
