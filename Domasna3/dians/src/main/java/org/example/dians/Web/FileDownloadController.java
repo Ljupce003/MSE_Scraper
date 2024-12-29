@@ -16,7 +16,6 @@ public class FileDownloadController {
 
     //private static final long MAX_WAIT_TIME = 10000;
 
-
     @GetMapping("/download/mega-data.csv")
     public ResponseEntity<FileSystemResource> downloadFile_csv() {
         if (PythonRunnerFlag.flag) {
@@ -32,6 +31,24 @@ public class FileDownloadController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=mega-data.csv");
+        headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_OCTET_STREAM_VALUE);
+
+        // Return the file as a download
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(new FileSystemResource(file));
+    }
+
+    @GetMapping("/download/processed_lstm.csv")
+    public ResponseEntity<FileSystemResource> downloadFile_lstm() {
+        // Replace with the actual path to the generated CSV file
+        File file = new File("Domasna3/dians/src/main/python/Smestuvanje/processed_lstm.csv");
+        if (!file.exists()) {
+            return ResponseEntity.notFound().build();
+        }
+        // Create the response headers
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=processed_lstm.csv");
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_OCTET_STREAM_VALUE);
 
         // Return the file as a download

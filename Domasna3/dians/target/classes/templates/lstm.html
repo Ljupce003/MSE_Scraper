@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Македонска берза - LSTM</title>
     <link rel="stylesheet" href="/css/style.css">
+
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators-all.js"></script>
+
     <style>
         .circle-loader {
             border: 8px solid #f3f3f3;
@@ -55,11 +61,22 @@
             <div id="loader-container" class="loader-container" th:classappend="${error != null ? 'active' : ''}">
                 <div class="circle-loader"></div>
             </div>
-            <h1>Coming soon</h1>
+
+                <div class="main-wrapper">
+                    <div class="selectors-container">
+                        <div class="col">
+                            <label for="stockSelector">Акции:</label>
+                            <select id="stockSelector">
+                                <option value="">избери</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="container"></div>
+                </div>
+
         </center>
-
     </section>
-
+    <script src="/js/lstmChart.js"></script>
     <script src="/js/autoRefresh.js"></script>
 </body>
 </html>
