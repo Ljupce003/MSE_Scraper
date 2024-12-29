@@ -14,7 +14,7 @@ from sklearn.metrics import confusion_matrix, r2_score, mean_squared_error, mean
 import os
 
 mega_data_path = './Smestuvanje/mega-data.csv'
-processed_dataset_path = './Smestuvanje/processed_lstm.scv'
+processed_dataset_path = './Smestuvanje/processed_lstm.csv'
 names_json_filepath = './Smestuvanje/names.json'
 codes_json_filepath = './Smestuvanje/processed_codes.json'
 
