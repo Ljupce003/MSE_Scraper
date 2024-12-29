@@ -164,4 +164,81 @@ public class PythonScriptRunner {
 
         System.out.println("Python script 'Fundamental Analysis' is running in the background...");
     }
+
+    public static void runPythonScriptLSTM() {
+        System.out.println("Starting Python script 'LSTM' in background...");
+
+        PythonRunnerFlag.lstm_flag=true;
+
+        // Релативна патека до директориумот каде се наоѓа Python скриптата
+        File workingDirectory = new File(System.getProperty("user.dir"), "Domasna3/dians/src/main/python");
+
+        // Проверка дали директориумот постои и е валиден
+        if (!workingDirectory.exists() || !workingDirectory.isDirectory()) {
+            throw new RuntimeException("Invalid directory: " + workingDirectory.getAbsolutePath());
+        }
+
+
+        // Патека до Python интерпретаторот (или Python3)
+        String pythonPath="C:/Users/Ljupce/Desktop/MSE_Scraper_main/MSE_Scraper-main/Domasna3/dians/venv/Scripts/python.exe";
+
+        // Патека до Python скриптата
+        File scriptFile = new File(workingDirectory, "LSTM.py");
+
+        // Проверка дали Python скриптата постои
+        if (!scriptFile.exists()) {
+            throw new RuntimeException("Python script not found: " + scriptFile.getAbsolutePath());
+        }
+
+        // Креирај процес за извршување на Python скриптата
+        ProcessBuilder processBuilder = new ProcessBuilder(pythonPath, scriptFile.getAbsolutePath());
+        processBuilder.environment().put("PYTHONIOENCODING","utf-8");
+
+
+        // Поставување на работниот директориум
+        processBuilder.directory(workingDirectory);
+
+
+        // Креирај нова нишка за да го следи процесот
+        new Thread(() -> {
+            try {
+                // Стартувај ја скриптата во позадина
+                Process process = null;
+                try {
+                    process = processBuilder.start();
+
+                    BufferedReader reader =process.inputReader();
+                    String line=reader.readLine();
+                    reader.close();
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                int exitCode = process.waitFor(); // Чека завршување на скриптата
+                if (exitCode == 0) {
+                    System.out.println("Python script 'LSTM' finished successfully.");
+                    PythonRunnerFlag.lstm_flag=false;
+
+                } else {
+                    System.err.println("Python script 'LSTM' exited with code: " + exitCode);
+                    BufferedReader reader= process.errorReader();
+                    String line= reader.readLine();
+                    while (line!=null && !line.isEmpty()){
+                        System.out.println(line);
+                        line= reader.readLine();
+                    }
+                    reader.close();
+
+                }
+            } catch (InterruptedException e) {
+                System.err.println("Error while waiting for Python script 'LSTM' to finish: "
+                        + e.getMessage());
+                Thread.currentThread().interrupt();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
+
+        System.out.println("Python script 'LSTM' is running in the background...");
+    }
 }

@@ -18,6 +18,7 @@ public class GetControler {
     public GetControler() {
         PythonScriptRunner.runPythonScript();
         //PythonScriptRunner.runPythonScriptFundamentalAnalysis();
+        PythonScriptRunner.runPythonScriptLSTM();
     }
 
     @GetMapping("/scr")
