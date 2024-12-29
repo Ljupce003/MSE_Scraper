@@ -25,10 +25,6 @@ public class FileDownloadController {
 
         File file = new File("Domasna3/dians/src/main/python/Smestuvanje/mega-data.csv");
 
-//        if (!file.exists()) {
-//            return ResponseEntity.notFound().build();
-//        }
-
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=mega-data.csv");
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_OCTET_STREAM_VALUE);
@@ -56,6 +52,8 @@ public class FileDownloadController {
                 .headers(headers)
                 .body(new FileSystemResource(file));
     }
+
+
 
 
     @GetMapping("/download/issuer_names.json")

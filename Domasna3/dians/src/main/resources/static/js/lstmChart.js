@@ -6,6 +6,8 @@ fetch("/download/processed_lstm.csv")
     })
     .catch((error) => console.error("Error loading CSV:", error));
 
+score_issuer={}
+
 function parseCSV(csv) {
     const rows = csv.split("\n");
     const stockData = {};
@@ -24,6 +26,10 @@ function parseCSV(csv) {
 
         if (!stockData[stockCode]) {
             stockData[stockCode] = [];
+        }
+
+        if(!score_issuer[stockCode]){
+            score_issuer[stockCode]=score
         }
 
         if (!isNaN(close) && !isNaN(closePred) && !isNaN(score)) {
@@ -72,8 +78,8 @@ function initializeChart(stockData) {
             pointFormatter: function () {
                 return (
                     "<b>" +
-                    this.series.chart.options.title.text +
-                    "</b><br>" + // Dynamically uses the updated chart title
+                    this.series.name + // Use the series name to distinguish between actual and predicted
+                    "</b><br>" +
                     "Value: " +
                     Highcharts.numberFormat(this.y, 2, ",", ".") +
                     "<br>" +
@@ -106,6 +112,15 @@ function initializeChart(stockData) {
         chart.setTitle({ text: selectedStock }); // Update the title
         chart.series[0].update({ name: selectedStock + " Close Price" });
         chart.series[1].update({ name: selectedStock + " Predicted Close Price" });
+
+        document.getElementById("score_container").innerHTML="Score for : <b>"+ selectedStock +
+            "</b> is "+ score_issuer[selectedStock]
+
+        document.getElementById("score_container").style= "font-weight: 400;"
+        let section = document.getElementById("tech");
+        if (section) {
+            section.style.height = "auto"; // Set height to auto
+        }
     });
 }
 
