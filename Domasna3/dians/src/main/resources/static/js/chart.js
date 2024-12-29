@@ -11,7 +11,7 @@ function parseCSV(csv) {
     const stockData = {};
 
     rows.forEach((row, index) => {
-        if (index === 0 || row.trim() === "") return;
+        if (index === 0 || row.trim() === "") return; // Skip header or empty rows
         const fields = row.split(",");
 
         const stockCode = fields[0];
