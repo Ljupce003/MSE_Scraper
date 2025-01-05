@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #4d547e;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button{
+    cursor: pointer;
+
+}
+
+header div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header div h1 {
+    color: #fff;
+}
+
+header menu ul {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+header menu ul li {
+    padding: 8px;
+    list-style-type: none;
+    background-color: #eed92b;
+    border-radius: 15px;
+}
+
+header menu ul li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.active {
+    border: 2px solid #fff;
+}
+
+#tech {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    background-color: #dfdfdf;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#front {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    background-color: #dfdfdf;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+section .sec {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section div button {
+    padding: 10px;
+    background-color: #eed92b;
+    border: none;
+    border-radius: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+section div button a {
+    text-decoration: none;
+    color: #000;
+}
+
+section .chart {
+    width: 100%;
+    height: 100%;
+}
+
+#tableContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+table {
+    background: white;
+    border-radius: 3px;
+    border-collapse: collapse;
+    padding: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    color: #d5dde5;
+    background: #4d547e;
+    border-bottom: 4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size: 23px;
+    font-weight: 100;
+    padding: 15px;
+    text-align: left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+}
+
+tr {
+    border-top: 1px solid #c1c3d1;
+    border-bottom: 1px solid #c1c3d1;
+    color: #666b85;
+    font-size: 16px;
+    font-weight: normal;
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+td {
+    background: #ffffff;
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 18px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #c1c3d1;
+}
+
+.selectors-container {
+    background: #f2f2f2;
+    font-size: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.selectors-container .col {
+    font-size: 16px;
+    /*width: calc(50% - 1em);*/
+    padding: 10px;
+    display: flex;
+}
+
+.selectors-container select {
+    width: 100%;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .selectors-container .col {
+        display: block;
+        width: calc(100% - 1em);
+    }
+}
+
+input {
+    flex: 1;
+    padding: 8px;
+}
+
+label {
+    width: 100px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.button{
+    padding: 10px;
+    background-color: #eed92b;
+    border: none;
+    border-radius: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}

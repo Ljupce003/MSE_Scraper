@@ -1,0 +1,566 @@
+[
+    {
+        "code": "ADIN",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ALK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "GRNT",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "INB",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KMB",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MPT",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MTUR",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "OKTA",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "REPL",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SBT",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "STB",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "STIL",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TEL",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TNB",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TTK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "UNI",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "AUMK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "FERS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "INDI",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "PPIV",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "RADE",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "RZEK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "RZUS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TASK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TETE",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TKVS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "VITA",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ALKB",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "AMBR",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "AMEH",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "APTK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ATPP",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "BANA",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "BGOR",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "BIKF",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "BIM",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "BLTU",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "CBNG",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "CEVI",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "CKB",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "CKBKO",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "DEBA",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "DIMI",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "EDST",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ENER",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "EUHA",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "EVRO",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "FAKM",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "FUBT",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "GALE",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "GDKM",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "GECK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "GECT",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "GRDN",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "GRZD",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "GTC",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "GTRG",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "IJUG",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "INHO",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "INOV",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "INPR",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "INTP",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "JAKO",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "JULI",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "JUSK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KARO",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KJUBI",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KKFI",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KLST",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KMPR",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KOMU",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KONF",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KONZ",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KPSS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "KVAS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "LOTO",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "LOZP",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MAGP",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MAKP",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MAKS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MB",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MERM",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MKSD",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MLKR",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MODA",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MPOL",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MZHE",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "MZPU",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "NEME",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "NOSK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "OILK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "OMOS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "OPFO",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "OPTK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ORAN",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "OSPO",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "OTEK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "PKB",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "POPK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "PROT",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "RIMI",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "RZIT",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "RZLE",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "RZLV",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "RZTK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "RZUG",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SDOM",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SIL",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SKP",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SLAV",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SNBT",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SNBTO",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SOLN",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SPAZ",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SPAZP",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SPOL",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "SSPR",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "STBP",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "STOK",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TAJM",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TEAL",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TEHN",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TIGA",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TIKV",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TKPR",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TRDB",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TRPS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TRUB",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "TSMP",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "USJE",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "VARG",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "VROS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "VSC",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "VTKS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ZAS",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ZILU",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ZILUP",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ZKAR",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ZPKO",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ZPOG",
+        "last_date": "05.01.2015"
+    },
+    {
+        "code": "ZSIL",
+        "last_date": "05.01.2015"
+    }
+]

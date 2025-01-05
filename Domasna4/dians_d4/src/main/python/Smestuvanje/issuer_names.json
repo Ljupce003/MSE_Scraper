@@ -1,0 +1,566 @@
+[
+    {
+        "id": 1,
+        "name": "ADIN"
+    },
+    {
+        "id": 2,
+        "name": "ALK"
+    },
+    {
+        "id": 3,
+        "name": "GRNT"
+    },
+    {
+        "id": 4,
+        "name": "INB"
+    },
+    {
+        "id": 5,
+        "name": "KMB"
+    },
+    {
+        "id": 6,
+        "name": "MPT"
+    },
+    {
+        "id": 7,
+        "name": "MTUR"
+    },
+    {
+        "id": 8,
+        "name": "OKTA"
+    },
+    {
+        "id": 9,
+        "name": "REPL"
+    },
+    {
+        "id": 10,
+        "name": "SBT"
+    },
+    {
+        "id": 11,
+        "name": "STB"
+    },
+    {
+        "id": 12,
+        "name": "STIL"
+    },
+    {
+        "id": 13,
+        "name": "TEL"
+    },
+    {
+        "id": 14,
+        "name": "TNB"
+    },
+    {
+        "id": 15,
+        "name": "TTK"
+    },
+    {
+        "id": 16,
+        "name": "UNI"
+    },
+    {
+        "id": 17,
+        "name": "AUMK"
+    },
+    {
+        "id": 18,
+        "name": "FERS"
+    },
+    {
+        "id": 19,
+        "name": "INDI"
+    },
+    {
+        "id": 20,
+        "name": "PPIV"
+    },
+    {
+        "id": 21,
+        "name": "RADE"
+    },
+    {
+        "id": 22,
+        "name": "RZEK"
+    },
+    {
+        "id": 23,
+        "name": "RZUS"
+    },
+    {
+        "id": 24,
+        "name": "TASK"
+    },
+    {
+        "id": 25,
+        "name": "TETE"
+    },
+    {
+        "id": 26,
+        "name": "TKVS"
+    },
+    {
+        "id": 27,
+        "name": "VITA"
+    },
+    {
+        "id": 28,
+        "name": "ALKB"
+    },
+    {
+        "id": 29,
+        "name": "AMBR"
+    },
+    {
+        "id": 30,
+        "name": "AMEH"
+    },
+    {
+        "id": 31,
+        "name": "APTK"
+    },
+    {
+        "id": 32,
+        "name": "ATPP"
+    },
+    {
+        "id": 33,
+        "name": "BANA"
+    },
+    {
+        "id": 34,
+        "name": "BGOR"
+    },
+    {
+        "id": 35,
+        "name": "BIKF"
+    },
+    {
+        "id": 36,
+        "name": "BIM"
+    },
+    {
+        "id": 37,
+        "name": "BLTU"
+    },
+    {
+        "id": 38,
+        "name": "CBNG"
+    },
+    {
+        "id": 39,
+        "name": "CEVI"
+    },
+    {
+        "id": 40,
+        "name": "CKB"
+    },
+    {
+        "id": 41,
+        "name": "CKBKO"
+    },
+    {
+        "id": 42,
+        "name": "DEBA"
+    },
+    {
+        "id": 43,
+        "name": "DIMI"
+    },
+    {
+        "id": 44,
+        "name": "EDST"
+    },
+    {
+        "id": 45,
+        "name": "ENER"
+    },
+    {
+        "id": 46,
+        "name": "EUHA"
+    },
+    {
+        "id": 47,
+        "name": "EVRO"
+    },
+    {
+        "id": 48,
+        "name": "FAKM"
+    },
+    {
+        "id": 49,
+        "name": "FUBT"
+    },
+    {
+        "id": 50,
+        "name": "GALE"
+    },
+    {
+        "id": 51,
+        "name": "GDKM"
+    },
+    {
+        "id": 52,
+        "name": "GECK"
+    },
+    {
+        "id": 53,
+        "name": "GECT"
+    },
+    {
+        "id": 54,
+        "name": "GRDN"
+    },
+    {
+        "id": 55,
+        "name": "GRZD"
+    },
+    {
+        "id": 56,
+        "name": "GTC"
+    },
+    {
+        "id": 57,
+        "name": "GTRG"
+    },
+    {
+        "id": 58,
+        "name": "IJUG"
+    },
+    {
+        "id": 59,
+        "name": "INHO"
+    },
+    {
+        "id": 60,
+        "name": "INOV"
+    },
+    {
+        "id": 61,
+        "name": "INPR"
+    },
+    {
+        "id": 62,
+        "name": "INTP"
+    },
+    {
+        "id": 63,
+        "name": "JAKO"
+    },
+    {
+        "id": 64,
+        "name": "JULI"
+    },
+    {
+        "id": 65,
+        "name": "JUSK"
+    },
+    {
+        "id": 66,
+        "name": "KARO"
+    },
+    {
+        "id": 67,
+        "name": "KJUBI"
+    },
+    {
+        "id": 68,
+        "name": "KKFI"
+    },
+    {
+        "id": 69,
+        "name": "KLST"
+    },
+    {
+        "id": 70,
+        "name": "KMPR"
+    },
+    {
+        "id": 71,
+        "name": "KOMU"
+    },
+    {
+        "id": 72,
+        "name": "KONF"
+    },
+    {
+        "id": 73,
+        "name": "KONZ"
+    },
+    {
+        "id": 74,
+        "name": "KPSS"
+    },
+    {
+        "id": 75,
+        "name": "KVAS"
+    },
+    {
+        "id": 76,
+        "name": "LOTO"
+    },
+    {
+        "id": 77,
+        "name": "LOZP"
+    },
+    {
+        "id": 78,
+        "name": "MAGP"
+    },
+    {
+        "id": 79,
+        "name": "MAKP"
+    },
+    {
+        "id": 80,
+        "name": "MAKS"
+    },
+    {
+        "id": 81,
+        "name": "MB"
+    },
+    {
+        "id": 82,
+        "name": "MERM"
+    },
+    {
+        "id": 83,
+        "name": "MKSD"
+    },
+    {
+        "id": 84,
+        "name": "MLKR"
+    },
+    {
+        "id": 85,
+        "name": "MODA"
+    },
+    {
+        "id": 86,
+        "name": "MPOL"
+    },
+    {
+        "id": 87,
+        "name": "MZHE"
+    },
+    {
+        "id": 88,
+        "name": "MZPU"
+    },
+    {
+        "id": 89,
+        "name": "NEME"
+    },
+    {
+        "id": 90,
+        "name": "NOSK"
+    },
+    {
+        "id": 91,
+        "name": "OILK"
+    },
+    {
+        "id": 92,
+        "name": "OMOS"
+    },
+    {
+        "id": 93,
+        "name": "OPFO"
+    },
+    {
+        "id": 94,
+        "name": "OPTK"
+    },
+    {
+        "id": 95,
+        "name": "ORAN"
+    },
+    {
+        "id": 96,
+        "name": "OSPO"
+    },
+    {
+        "id": 97,
+        "name": "OTEK"
+    },
+    {
+        "id": 98,
+        "name": "PKB"
+    },
+    {
+        "id": 99,
+        "name": "POPK"
+    },
+    {
+        "id": 100,
+        "name": "PROT"
+    },
+    {
+        "id": 101,
+        "name": "RIMI"
+    },
+    {
+        "id": 102,
+        "name": "RZIT"
+    },
+    {
+        "id": 103,
+        "name": "RZLE"
+    },
+    {
+        "id": 104,
+        "name": "RZLV"
+    },
+    {
+        "id": 105,
+        "name": "RZTK"
+    },
+    {
+        "id": 106,
+        "name": "RZUG"
+    },
+    {
+        "id": 107,
+        "name": "SDOM"
+    },
+    {
+        "id": 108,
+        "name": "SIL"
+    },
+    {
+        "id": 109,
+        "name": "SKP"
+    },
+    {
+        "id": 110,
+        "name": "SLAV"
+    },
+    {
+        "id": 111,
+        "name": "SNBT"
+    },
+    {
+        "id": 112,
+        "name": "SNBTO"
+    },
+    {
+        "id": 113,
+        "name": "SOLN"
+    },
+    {
+        "id": 114,
+        "name": "SPAZ"
+    },
+    {
+        "id": 115,
+        "name": "SPAZP"
+    },
+    {
+        "id": 116,
+        "name": "SPOL"
+    },
+    {
+        "id": 117,
+        "name": "SSPR"
+    },
+    {
+        "id": 118,
+        "name": "STBP"
+    },
+    {
+        "id": 119,
+        "name": "STOK"
+    },
+    {
+        "id": 120,
+        "name": "TAJM"
+    },
+    {
+        "id": 121,
+        "name": "TEAL"
+    },
+    {
+        "id": 122,
+        "name": "TEHN"
+    },
+    {
+        "id": 123,
+        "name": "TIGA"
+    },
+    {
+        "id": 124,
+        "name": "TIKV"
+    },
+    {
+        "id": 125,
+        "name": "TKPR"
+    },
+    {
+        "id": 126,
+        "name": "TRDB"
+    },
+    {
+        "id": 127,
+        "name": "TRPS"
+    },
+    {
+        "id": 128,
+        "name": "TRUB"
+    },
+    {
+        "id": 129,
+        "name": "TSMP"
+    },
+    {
+        "id": 130,
+        "name": "USJE"
+    },
+    {
+        "id": 131,
+        "name": "VARG"
+    },
+    {
+        "id": 132,
+        "name": "VROS"
+    },
+    {
+        "id": 133,
+        "name": "VSC"
+    },
+    {
+        "id": 134,
+        "name": "VTKS"
+    },
+    {
+        "id": 135,
+        "name": "ZAS"
+    },
+    {
+        "id": 136,
+        "name": "ZILU"
+    },
+    {
+        "id": 137,
+        "name": "ZILUP"
+    },
+    {
+        "id": 138,
+        "name": "ZKAR"
+    },
+    {
+        "id": 139,
+        "name": "ZPKO"
+    },
+    {
+        "id": 140,
+        "name": "ZPOG"
+    },
+    {
+        "id": 141,
+        "name": "ZSIL"
+    }
+]
