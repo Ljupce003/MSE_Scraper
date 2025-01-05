@@ -1,8 +1,8 @@
-package mk.das.fundamental_m_service.service.implementation;
+package mk.das.lstm_m_service.service.implementation;
 
-import mk.das.fundamental_m_service.service.PythonScriptRunnerService;
-import mk.das.fundamental_m_service.web.controller.Fundamental_Analysis_Controller;
-import org.springframework.context.annotation.Scope;
+
+import mk.das.lstm_m_service.service.PythonScriptRunnerService;
+import mk.das.lstm_m_service.web.controller.LSTM_Analysis_Controller;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 
@@ -22,12 +21,12 @@ public class PythonScriptRunnerServiceImplemented implements PythonScriptRunnerS
     @Override
     public void run_script() {
 
-        if(!Fundamental_Analysis_Controller.script_running_flag) {
+        if(!LSTM_Analysis_Controller.script_running_flag) {
 
-            System.out.println("Starting Python script 'Fundamental Analysis' in background...");
+            System.out.println("Starting Python script 'LSTM' in background...");
 
             // Релативна патека до директориумот каде се наоѓа Python скриптата
-            File workingDirectory = new File(System.getProperty("user.dir"), "Domasna4/fundamental_m_service/src/main/python");        //TODO Voa treba se smene ako frla error file not found
+            File workingDirectory = new File(System.getProperty("user.dir"), "Domasna4/lstm_m_service/src/main/python");        //TODO Voa treba se smene ako frla error file not found
 
             // Проверка дали директориумот постои и е валиден
             if (!workingDirectory.exists() || !workingDirectory.isDirectory()) {
@@ -37,7 +36,7 @@ public class PythonScriptRunnerServiceImplemented implements PythonScriptRunnerS
             String pythonPath="C:/Users/Ljupce/Desktop/MSE_Scraper_main/MSE_Scraper-main/Domasna3/dians/venv/Scripts/python.exe";  //TODO Voa treba se smene ako frla error file not found ama voa bara biblioteki za NLP i Nevronski mrezi
 
             // Патека до Python скриптата
-            File scriptFile = new File(workingDirectory, "Fundamental_processing.py");
+            File scriptFile = new File(workingDirectory, "LSTM.py");
 
             // Проверка дали Python скриптата постои
             if (!scriptFile.exists()) {
@@ -47,7 +46,6 @@ public class PythonScriptRunnerServiceImplemented implements PythonScriptRunnerS
             // Креирај процес за извршување на Python скриптата
             ProcessBuilder processBuilder = new ProcessBuilder(pythonPath, scriptFile.getAbsolutePath());
             processBuilder.environment().put("PYTHONIOENCODING","utf-8");
-
             processBuilder.redirectErrorStream(true);
 
 
@@ -63,7 +61,7 @@ public class PythonScriptRunnerServiceImplemented implements PythonScriptRunnerS
                     Process process;
 
                     try {
-                        Fundamental_Analysis_Controller.script_running_flag=true;
+                        LSTM_Analysis_Controller.script_running_flag=true;
                         process = processBuilder.start();
 
                         try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
@@ -79,11 +77,11 @@ public class PythonScriptRunnerServiceImplemented implements PythonScriptRunnerS
                     }
                     int exitCode = process.waitFor(); // Чека завршување на скриптата
                     if (exitCode == 0) {
-                        System.out.println("Python script 'Fundamental Analysis' finished successfully.");
-                        Fundamental_Analysis_Controller.script_last_run_time= LocalDateTime.now();
+                        System.out.println("Python script 'LSTM' finished successfully.");
+                        LSTM_Analysis_Controller.script_last_run_time= LocalDateTime.now();
 
                     } else {
-                        System.err.println("Python script 'Fundamental Analysis' exited with code: " + exitCode);
+                        System.err.println("Python script 'LSTM' exited with code: " + exitCode);
 
                         for (String s : log_list) {
                             System.out.println("PROCESS OUT:"+s);
@@ -91,15 +89,15 @@ public class PythonScriptRunnerServiceImplemented implements PythonScriptRunnerS
 
                     }
                 } catch (InterruptedException e) {
-                    System.err.println("Error while waiting for Python script 'Fundamental Analysis' to finish: "
+                    System.err.println("Error while waiting for Python script 'LSTM' to finish: "
                             + e.getMessage());
                     Thread.currentThread().interrupt();
                 } finally {
-                    Fundamental_Analysis_Controller.script_running_flag=false;
+                    LSTM_Analysis_Controller.script_running_flag=false;
                 }
             }).start();
 
-            System.out.println("Python script 'Fundamental Analysis' is running in the background...");
+            System.out.println("Python script 'LSTM' is running in the background...");
         }
 
 

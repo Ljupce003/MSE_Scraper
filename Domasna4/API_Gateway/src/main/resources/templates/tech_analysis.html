@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Македонска берза - техничка анализа</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators-all.js"></script>
+    <style>
+      .circle-loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #3498db;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+      }
+
+      .loader-container {
+        display: none;
+      }
+
+      .loader-container.active {
+        display: block;
+        border: none;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <img src="/images/logo.png" width="70px" height="60px">
+        <h1>МАКЕДОНСКА БЕРЗА</h1>
+      </div>
+      <menu>
+        <ul>
+          <li><a href="/index">Почетна</a></li>
+          <li class="active">
+            <a href="/tech_analysis">Техничка анализа</a>
+          </li>
+          <li><a href="/fundamental">Фундаментална анализа</a></li>
+          <li><a href="/lstm">LSTM</a></li>
+        </ul>
+      </menu>
+    </header>
+
+    <section id="tech">
+      <center>
+        <br>
+        <input type="hidden" name="haveError" th:value="${error}!=null ? false : true ">
+        <div th:text="${error}!=null ? ${error} : '' " id="errorDiv" >
+          Greski se prikazuvat ovde
+        </div>
+        <div id="loader-container" class="loader-container" th:classappend="${error != null ? 'active' : ''}">
+          <div class="circle-loader"></div>
+        </div>
+        <br>
+        <div>
+          <div class="main-wrapper">
+            <div class="selectors-container">
+              <div class="col">
+                <label for="stockSelector">Акции:</label>
+                <select id="stockSelector">
+                   <option value="">избери</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="overlays">Индикатори:</label>
+                <select class="left-select" id="overlays">
+                  <option value="none" selected="selected">избери</option>
+                  <option value="linearRegression">Linear Regression</option>
+                  <option value="pivotpoints">Pivot Points</option>
+                  <option value="pc">Price Channel</option>
+                  <option value="sma">SMA (Simple Moving Average)</option>
+                  <option value="supertrend">Super Trend</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="oscillators">Осцилатори:</label>
+                <select class="right-select" id="oscillators">
+                  <option value="none" selected="selected">избери</option>
+                  <option value="apo">Absolute Price Oscillator</option>
+                  <option value="ao">Awesome Oscillator</option>
+                  <option value="cci">CCI (Commodity Channel Index)</option>
+                  <option value="macd">MACD</option>
+                  <option value="mfi">MFI (Money Flow Index)</option>
+                </select>
+              </div>
+            </div>
+            <div id="container"></div>
+          </div>
+        </div>
+      </center>
+    </section>
+
+    <script src="/js/chart.js"></script>
+    <script src="/js/autoRefresh.js"></script>
+  </body>
+</html>

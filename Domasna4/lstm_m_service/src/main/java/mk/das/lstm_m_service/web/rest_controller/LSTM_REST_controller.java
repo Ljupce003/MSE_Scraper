@@ -1,8 +1,7 @@
-package mk.das.fundamental_m_service.web.rest_controller;
+package mk.das.lstm_m_service.web.rest_controller;
 
-import mk.das.fundamental_m_service.service.PythonScriptRunnerService;
-import mk.das.fundamental_m_service.web.controller.Fundamental_Analysis_Controller;
-import org.example.dians.Component.PythonRunnerFlag;
+import mk.das.lstm_m_service.service.PythonScriptRunnerService;
+import mk.das.lstm_m_service.web.controller.LSTM_Analysis_Controller;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -14,27 +13,27 @@ import java.io.File;
 import java.time.LocalDateTime;
 
 @RestController
-public class Fundamental_Analysis_REST_controller {
+public class LSTM_REST_controller {
 
     private final PythonScriptRunnerService scriptRunnerService;
 
-    public Fundamental_Analysis_REST_controller(PythonScriptRunnerService scriptRunnerService) {
+    public LSTM_REST_controller(PythonScriptRunnerService scriptRunnerService) {
         this.scriptRunnerService = scriptRunnerService;
     }
 
-    @GetMapping("/download-result")
+    @GetMapping("/download/processed_lstm.csv")
     public ResponseEntity<FileSystemResource> downloadFile_names() {
         // Replace with the actual path to the generated CSV file
-        File file = new File("Domasna4/fundamental_m_service/src/main/python/Smestuvanje/channels.json");
+        File file = new File("Domasna4/lstm_m_service/src/main/python/Smestuvanje/processed_lstm.csv"); //TODO alter
         if (!file.exists()) {
             return ResponseEntity.notFound().build();
         }
         // Create the response headers
         HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=channels.json");
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=processed_lstm.csv"); //TODO alter
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_OCTET_STREAM_VALUE);
 
-        if(Fundamental_Analysis_Controller.script_last_run_time.isBefore(LocalDateTime.now().minusHours(12))){
+        if(LSTM_Analysis_Controller.script_last_run_time.isBefore(LocalDateTime.now().minusHours(12))){
             scriptRunnerService.run_script();
         }
 
@@ -53,7 +52,7 @@ public class Fundamental_Analysis_REST_controller {
 
             return ResponseEntity.ok()
                     .headers(headers)
-                    .body(Fundamental_Analysis_Controller.script_running_flag); // return the flag status
+                    .body(LSTM_Analysis_Controller.script_running_flag); // return the flag status
 
         }
 }
