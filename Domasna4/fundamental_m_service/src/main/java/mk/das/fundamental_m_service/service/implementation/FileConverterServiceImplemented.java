@@ -16,7 +16,7 @@ public class FileConverterServiceImplemented implements FileConverterService {
     @Override
     public Map<String, String> AnalysisCodes() {
         // Патека до JSON фајлот
-        String filePath = System.getProperty("user.dir") + "/Domasna3/dians/src/main/python/Smestuvanje/channels.json"; //TODO Voa treba se smene ako frla error file not found
+        String filePath = System.getProperty("user.dir") + "Domasna4/fundamental_m_service/src/main/python/Smestuvanje/channels.json"; //TODO Voa treba se smene ako frla error file not found
 
         // Креирај ObjectMapper
         ObjectMapper objectMapper = new ObjectMapper();
@@ -47,7 +47,7 @@ public class FileConverterServiceImplemented implements FileConverterService {
     @Override
     public Issuer GetAnalysisResultByCode(String code) {
         try {
-            String filePath = System.getProperty("user.dir") + "/Domasna4/dians_d4/src/main/python/Smestuvanje/channels.json"; //TODO Voa treba se smene ako frla error file not found
+            String filePath = System.getProperty("user.dir") + "Domasna4/fundamental_m_service/src/main/python/Smestuvanje/channels.json"; //TODO Voa treba se smene ako frla error file not found
             // Parse JSON file
             ObjectMapper mapper = new ObjectMapper();
             Issuer[] dataArray = mapper.readValue(new File(filePath), Issuer[].class);
