@@ -1,5 +1,7 @@
 
-var jsonPath = "/download/names.json";
+//var jsonPath = "/download/names.json";
+var jsonPath = "http://localhost:8091/download/names.json";
+
 
 window.onload = function () {
     fetch(jsonPath)

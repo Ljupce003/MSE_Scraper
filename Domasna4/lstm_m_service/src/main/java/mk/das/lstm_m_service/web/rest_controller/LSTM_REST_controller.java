@@ -6,6 +6,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,6 +22,7 @@ public class LSTM_REST_controller {
         this.scriptRunnerService = scriptRunnerService;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/download/processed_lstm.csv")
     public ResponseEntity<FileSystemResource> downloadFile_names() {
         // Replace with the actual path to the generated CSV file
@@ -43,7 +45,8 @@ public class LSTM_REST_controller {
                 .body(new FileSystemResource(file));
     }
 
-    @GetMapping("/fund-flag")
+    @CrossOrigin(origins = "*")
+    @GetMapping("/download/lstm-flag")
         public ResponseEntity<Boolean> getScriptRunningFlag(){
             HttpHeaders headers = new HttpHeaders();
             headers.add(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate");

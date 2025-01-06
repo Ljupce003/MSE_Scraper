@@ -1,5 +1,6 @@
 let intervalId;
 
+// /flag-status
 async function checkFlagStatus() {
     try {
 
@@ -7,7 +8,7 @@ async function checkFlagStatus() {
             return;
         }
 
-        const response = await fetch('/flag-status');
+        const response = await fetch('http://localhost:8091/download/tech-flag');
         const isFlagTrue = await response.json();
 
         if (!isFlagTrue) {
@@ -24,7 +25,7 @@ async function checkFlagStatus() {
 }
 
 function resetRefreshedFlag() {
-    fetch('/flag-status')
+    fetch('http://localhost:8091/download/tech-flag')
         .then(response => response.json())
         .then(flagStatus => {
             if (flagStatus === true) {

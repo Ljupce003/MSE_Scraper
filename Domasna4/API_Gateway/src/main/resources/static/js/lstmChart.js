@@ -1,4 +1,6 @@
-fetch("/download/processed_lstm.csv")
+
+//fetch("/download/processed_lstm.csv")
+fetch("http://localhost:8093/download/processed_lstm.csv")
     .then((response) => response.text())
     .then((csvData) => {
         const parsedData = parseCSV(csvData);

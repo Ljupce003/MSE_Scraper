@@ -6,6 +6,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,16 +22,17 @@ public class Tech_REST_controller {
         this.scriptRunnerService = scriptRunnerService;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/download/mega-data.csv")
     public ResponseEntity<FileSystemResource> downloadTechResult() {
         // Replace with the actual path to the generated CSV file
-        File file = new File("Domasna4/lstm_m_service/src/main/python/Smestuvanje/processed_lstm.csv"); //TODO alter this after script finishes
+        File file = new File("Domasna4/tech_m_service/src/main/python/Smestuvanje/mega-data.csv"); //TODO alter this after script finishes
         if (!file.exists()) {
             return ResponseEntity.notFound().build();
         }
         // Create the response headers
         HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=processed_lstm.csv"); //TODO alter this after script finishes
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=mega-data.csv"); //TODO alter this after script finishes
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_OCTET_STREAM_VALUE);
 
         if(Tech_Analysis_Controller.script_last_run_time.isBefore(LocalDateTime.now().minusHours(12))){
@@ -44,6 +46,7 @@ public class Tech_REST_controller {
     }
 
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/download/issuer_names.json")
     public ResponseEntity<FileSystemResource> downloadFile_json() {
         // Replace with the actual path to the generated CSV file
@@ -63,6 +66,7 @@ public class Tech_REST_controller {
     }
 
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/download/names.json")
     public ResponseEntity<FileSystemResource> getIssuerNames() {
         // Replace with the actual path to the generated CSV file
@@ -81,8 +85,8 @@ public class Tech_REST_controller {
                 .body(new FileSystemResource(file));
     }
 
-
-    @GetMapping("/tech-flag")
+    @CrossOrigin(origins = "*")
+    @GetMapping("/download/tech-flag")
         public ResponseEntity<Boolean> getScriptRunningFlag(){
             HttpHeaders headers = new HttpHeaders();
             headers.add(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate");

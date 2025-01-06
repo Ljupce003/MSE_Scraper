@@ -1,4 +1,5 @@
-fetch("/download/mega-data.csv")
+// fetch("/download/mega-data.csv")
+fetch("http://localhost:8091/download/mega-data.csv")
     .then((response) => response.text())
     .then((csvData) => {
         const parsedData = parseCSV(csvData);

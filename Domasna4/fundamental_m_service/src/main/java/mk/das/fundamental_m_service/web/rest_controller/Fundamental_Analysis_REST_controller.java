@@ -7,6 +7,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,8 @@ public class Fundamental_Analysis_REST_controller {
         this.scriptRunnerService = scriptRunnerService;
     }
 
-    @GetMapping("/download-result")
+    @CrossOrigin(origins = "*")
+    @GetMapping("/download/result")
     public ResponseEntity<FileSystemResource> downloadFile_names() {
         // Replace with the actual path to the generated CSV file
         File file = new File("Domasna4/fundamental_m_service/src/main/python/Smestuvanje/channels.json");
@@ -44,7 +46,8 @@ public class Fundamental_Analysis_REST_controller {
                 .body(new FileSystemResource(file));
     }
 
-    @GetMapping("/fund-flag")
+    @CrossOrigin(origins = "*")
+    @GetMapping("/download/fund-flag")
         public ResponseEntity<Boolean> getScriptRunningFlag(){
             HttpHeaders headers = new HttpHeaders();
             headers.add(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate");

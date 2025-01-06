@@ -24,7 +24,7 @@ async function checkFlagStatus() {
 }
 
 function resetRefreshedFlag() {
-    fetch('/flag-status')
+    fetch('/tech-flag')
         .then(response => response.json())
         .then(flagStatus => {
             if (flagStatus === true) {

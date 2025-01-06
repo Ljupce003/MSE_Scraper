@@ -1,6 +1,8 @@
 package mk.das.api_gateway.web.controller;
 
 
+import mk.das.api_gateway.service.FileDownloadService;
+
 import mk.das.api_gateway.model.Issuer;
 import mk.das.api_gateway.utilities.CSVtoJAVA;
 import org.springframework.stereotype.Controller;
@@ -15,9 +17,11 @@ import java.util.stream.Collectors;
 
 @Controller
 public class Fundamental_Analysis_Controller {
+    private final FileDownloadService fileDownloadService;
 
-    public Fundamental_Analysis_Controller() {
+    public Fundamental_Analysis_Controller(FileDownloadService fileDownloadService) {
 
+        this.fileDownloadService = fileDownloadService;
     }
 
 
@@ -31,9 +35,15 @@ public class Fundamental_Analysis_Controller {
 //        }
         List<String> list = new ArrayList<>(CSVtoJAVA.AnalysisCodes().keySet());
 
+
+        this.fileDownloadService.downloadFundamentalFile("http://localhost:8092/download/result");
+
+
         model.addAttribute("codes_dropdown",list.stream().sorted().collect(Collectors.toList()));
         return "fundamental";
     }
+
+
 
 
     @PostMapping("/fundamental")
@@ -45,6 +55,8 @@ public class Fundamental_Analysis_Controller {
 //        if(PythonRunnerFlag.analysis_flag){
 //            model.addAttribute("analysis_error","Fundamental Analysis is not finished");
 //        }
+
+        this.fileDownloadService.downloadFundamentalFile("http://localhost:8092/download/result");
 
         Issuer result= CSVtoJAVA.GetAnalysisResultByCode(code);
 
@@ -58,3 +70,6 @@ public class Fundamental_Analysis_Controller {
 
 
 }
+
+
+

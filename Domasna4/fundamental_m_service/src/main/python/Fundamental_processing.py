@@ -1,28 +1,23 @@
-import io
-import json
-import logging
-import os
-import re
-import sys
+import pandas as pd
+import numpy as np
+from transformers import pipeline
+import torch
 import time
-import xml.etree.ElementTree as elementTree
-from collections import Counter
+from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
-
+from dateutil.relativedelta import relativedelta
+from playwright.sync_api import sync_playwright
+from collections import Counter
+import logging
+import io
 import requests
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright
-from transformers import pipeline
-
-url_base45 = "https://www.mse.mk/mk/stats/current-schedule"
-
-# Параметри за различните категории
-categories = [
-    {"name": "Континуирано (+/- 10%)", "url": url_base45 + "?category=10"},
-    {"name": "Аукциско со ценовни ограничувања (+/- 20%)", "url": url_base45 + "?category=20"},
-    {"name": "Аукциско без ценовни ограничувања", "url": url_base45 + "?category=no-limit"}
-]
+import re
+import json
+import os
+import sys
+import xml.etree.ElementTree as ET
 
 
 def fetch_data_from_category(url_input):
@@ -65,6 +60,15 @@ def fetch_data_from_category(url_input):
 
 def FetchNames(json_output_path_l: str):
 
+    url_base45 = "https://www.mse.mk/mk/stats/current-schedule"
+
+    # Параметри за различните категории
+    categories = [
+        {"name": "Континуирано (+/- 10%)", "url": url_base45 + "?category=10"},
+        {"name": "Аукциско со ценовни ограничувања (+/- 20%)", "url": url_base45 + "?category=20"},
+        {"name": "Аукциско без ценовни ограничувања", "url": url_base45 + "?category=no-limit"}
+    ]
+
     all_items = []
     # Пребарување и собирање на податоци од сите категории
     for category in categories:
@@ -82,8 +86,8 @@ def FetchNames(json_output_path_l: str):
             seen.add((code, name))
 
     # Запишување на податоците во JSON фајл
-    output_dir = './Smestuvanje'
-    os.makedirs(output_dir, exist_ok=True)  # Ако не постои папката, ја создава
+    # output_dir = './Smestuvanje'
+    # os.makedirs(output_dir, exist_ok=True)  # Ако не постои папката, ја создава
     with open(json_output_path_l, 'w', encoding='utf-8') as f:
         json.dump(unique_data, f, ensure_ascii=False, indent=4)
 
@@ -246,7 +250,7 @@ def processIssuerDictToChannel(issuer):
         rss_content = response.text
 
         # Parse the RSS feed
-        root = elementTree.fromstring(rss_content)
+        root = ET.fromstring(rss_content)
 
         # Extract channel information
         channel = root.find("channel")
@@ -267,7 +271,7 @@ def processIssuerDictToChannel(issuer):
 
     except requests.exceptions.RequestException as e:
         print(f"Error fetching RSS feed: {e}")
-    except elementTree.ParseError as e:
+    except ET.ParseError as e:
         print(f"Error parsing RSS feed: {e} . No information found for : {issuer['Issuer name']} and code "
               f"{issuer['Issuer code']}")
 
@@ -527,12 +531,17 @@ def check_and_add_issuer_data(json_file_path):
 
 def main():
     start_time = time.time()
+
+    current_directory = os.getcwd()
+
+    print("Current Directory:", current_directory)
+
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
     json_file_path = './Smestuvanje/names.json'
     json_channels_path = './Smestuvanje/channels.json'
 
-    check_and_add_issuer_data(json_file_path)
+    # check_and_add_issuer_data(json_file_path)
 
     dictio_list = getIssuerSiteLinksFromLocal(json_file_path, json_channels_path)
     channels = getRSSlinksForEachIssuer(dictio_list)
@@ -547,7 +556,6 @@ def main():
     duration = end_time - start_time
     print(f'\nThere are {len(channels)} channels found')
     print(f"Program completed in {duration:.2f} seconds")
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors="replace")
     sys.exit(0)
 
 

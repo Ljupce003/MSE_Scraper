@@ -7,7 +7,7 @@ async function checkFlagStatus() {
             return;
         }
 
-        const response = await fetch('/fund-flag');
+        const response = await fetch('/lstm-flag');
         const isFlagTrue = await response.json();
 
         if (!isFlagTrue) {
@@ -24,7 +24,7 @@ async function checkFlagStatus() {
 }
 
 function resetRefreshedFlag() {
-    fetch('/fund-flag')
+    fetch('/lstm-flag')
         .then(response => response.json())
         .then(flagStatus => {
             if (flagStatus === true) {
