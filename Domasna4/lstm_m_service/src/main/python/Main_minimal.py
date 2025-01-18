@@ -25,23 +25,9 @@ directory = './Smestuvanje'
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-# if not os.path.isfile(json_file_path):
-#     with open(json_file_path, 'r', encoding='utf-8') as file:
-#         data = json.load(file)
-#         print("Data is read successfully")
 
 # URL на страницата
 url_base45 = "https://www.mse.mk/mk/stats/current-schedule"
-
-# Список за чување на податоци
-data12 = []
-
-# Параметри за различните категории
-categories = [
-    {"name": "Континуирано (+/- 10%)", "url": url_base45 + "?category=10"},
-    {"name": "Аукциско со ценовни ограничувања (+/- 20%)", "url": url_base45 + "?category=20"},
-    {"name": "Аукциско без ценовни ограничувања", "url": url_base45 + "?category=no-limit"}
-]
 
 
 def Call_Filter_1():
@@ -58,13 +44,17 @@ def Call_Filter_1():
 
 
 def Call_Filter_II():
-    # print("Filter 2 started")
     get_last_dates_for_firms(csv_file_path, json_file_path, output_json)
     Filter_III(output_json)
 
 
 # Функција за вчитување и извлекување на податоци од една категорија
 def fetch_data_from_category(url_input):
+    """
+    Gi prevzema iminjata i kogovite zaedno so nivnite linkovi koi se naoogaat na dadenata URL
+    :param url_input: URL na kategorijata kade se locirani del od Izdavacite
+    :return: list od recnici za Izdavacite
+    """
     response = requests.get(url_input)
 
     if response.status_code != 200:
@@ -103,7 +93,19 @@ def fetch_data_from_category(url_input):
 
 
 def FetchNames():
-    # Пребарување и собирање на податоци од сите категории
+    """
+    Gi prevzema iminjata i kogovite zaedno so nivnite linkovi i potoa gi zacuvuva vo JSON fajl
+    """
+    # Список за чување на податоци
+    data12 = []
+
+    # Параметри за различните категории
+    categories = [
+        {"name": "Континуирано (+/- 10%)", "url": url_base45 + "?category=10"},
+        {"name": "Аукциско со ценовни ограничувања (+/- 20%)", "url": url_base45 + "?category=20"},
+        {"name": "Аукциско без ценовни ограничувања", "url": url_base45 + "?category=no-limit"}
+    ]
+
     for category in categories:
         # print(f"Reading data for category: {category['name']}")
         category_data = fetch_data_from_category(category['url'])
@@ -160,6 +162,7 @@ def fetch_codes_from_tabs(url_input):
 
 
 def load_or_create_csv(csv_file):
+    """Checks and loads or creates a 'csv' file if it is missing"""
     folder = os.path.dirname(csv_file)
     if folder and not os.path.exists(folder):
         os.makedirs(folder)
@@ -199,7 +202,6 @@ def get_last_dates_for_firms(csv_file, json_file, output_json_in):
 
     with open(output_json_in, "w", encoding="utf-8") as file_local:
         json.dump(last_dates, file_local, ensure_ascii=False, indent=4)
-    # print(f'Last dates saved to {output_json_in}.')
 
 
 def Filter_III(last_dates_json):
@@ -216,14 +218,19 @@ def Filter_III(last_dates_json):
             print(f"Code: {code}, Last Date: {last_date}, Today's Date: {today}")
             Call_save_data_from_to(code, last_date, today)
 
-    # print("Filter 3 finished")
-
 
 def format_price(price):
     return f"{price:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
 def fetch_data_for_period(firm_code, start_date, end_date):
+    """
+    Fetches data for a issuer for a max period of 1 year
+    :param firm_code: The issuer that we fetch data for
+    :param start_date: Start date of the period to fetch for
+    :param end_date: End date of the period to fetch for
+    :return: pd.DataFrame that contains the data
+    """
     session = requests.Session()
     payload = {"FromDate": start_date, "ToDate": end_date, "Code": firm_code}
     response = session.post(url, data=payload)
@@ -247,6 +254,13 @@ def fetch_data_for_period(firm_code, start_date, end_date):
 
 
 def fetch_data_for_large_date_range(firm_code, start_date, end_date):
+    """
+    Collectively fetches the whole data for a issuer based on the given start and end dates
+    :param firm_code: The issuer that we fetch data for
+    :param start_date: Start date that we start fetching
+    :param end_date: End date that we start fetching
+    :return: pd.DataFrame that contains the whole data for that issuer
+    """
     all_data = []
     max_days = 365
     current_start = datetime.strptime(start_date, "%d.%m.%Y")
@@ -271,6 +285,13 @@ def fetch_data_for_large_date_range(firm_code, start_date, end_date):
 
 
 def Call_save_data_from_to(firm_code, start_date, end_date):
+    """
+    Collectively fetches the whole data for a issuer based on the given start and end dates and then save it to a
+    local file
+    :param firm_code: The issuer that we fetch data for
+    :param start_date: Start date that we start fetching
+    :param end_date: End date that we start fetching
+    """
     try:
         memory_data = fetch_data_for_large_date_range(firm_code, start_date, end_date)
         if memory_data is not None:

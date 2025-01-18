@@ -25,9 +25,7 @@ public class LSTM_REST_controller {
     @CrossOrigin(origins = "*")
     @GetMapping("/download/processed_lstm.csv")
     public ResponseEntity<FileSystemResource> downloadFile_names() {
-        // Replace with the actual path to the generated CSV file
 
-        //File file = new File("Domasna4/lstm_m_service/src/main/python/Smestuvanje/processed_lstm.csv"); //TODO alter
         File file = new File("src/main/python/Smestuvanje/processed_lstm.csv"); //TODO alter
         if (!file.exists()) {
             return ResponseEntity.notFound().build();

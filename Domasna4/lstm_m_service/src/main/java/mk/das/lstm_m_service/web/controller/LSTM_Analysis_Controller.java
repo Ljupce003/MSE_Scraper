@@ -33,14 +33,13 @@ public class LSTM_Analysis_Controller {
 
     @GetMapping("/lstm")
     public String showFundamentalPage(Model model) {
-//        if(PythonRunnerFlag.flag){
-//            model.addAttribute("error","Fetching data...");
-//        }
+
         if(script_running_flag){
             model.addAttribute("lstm_error","Lstm is not finished");
         }
 
         LocalDateTime time_12hours_ago=LocalDateTime.now().minusHours(12);
+
         if(script_last_run_time.isBefore(time_12hours_ago)){
             scriptRunnerService.run_script();
         }

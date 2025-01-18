@@ -28,6 +28,12 @@ categories = [
 
 
 def predict_values_for_issuer(all_data: pd.DataFrame, issuer_code: str):
+    """
+    Vrsi procesiranje na podatocite segasni i pravi predviduvanje na niv so LSTM model na eden Izvadac
+    :param all_data: DataFrame objekt koj gi sodbrzi segasnite podatoci
+    :param issuer_code: Izdavacot na koj praveme procesiranje
+    :return: pd.DataFrame so procesiranite (predvidenite) podatoci za Izdavacot
+    """
     issuer_table_data = all_data[all_data['code'] == issuer_code]
 
     if len(issuer_table_data) < 100:
@@ -103,15 +109,18 @@ def save_processed_codes_to_json(codes_list: list, json_codes_path: str):
 
 
 def find_last_processing(names_file_path: str, processed_path: str):
-    if os.path.exists(names_file_path):
-        with open(names_file_path, 'r', encoding='utf-8') as file_og:
-            # Load the contents of the JSON file into a Python list of dictionaries
-            json_data = json.load(file_og)
-    else:
+    """
+    Proveruva koga e poslednoto processiranje i vraka lista ako barem eden datum e zastaren
+    :param names_file_path: Patekata kade se naoga listata na Recnici za Izdavaci
+    :param processed_path: Patekata na fajlot so veke procesiranite Izdavaci
+    :return: listata na Recnici za Izdavaci ako eden datum e zastaren, a None ako site se novi datumi
+    """
+    if not os.path.exists(names_file_path):
         FetchNames()
-        with open(names_file_path, 'r', encoding='utf-8') as file_og:
-            # Load the contents of the JSON file into a Python list of dictionaries
-            json_data = json.load(file_og)
+
+    with open(names_file_path, 'r', encoding='utf-8') as file_og:
+        # Load the contents of the JSON file into a Python list of dictionaries
+        json_data = json.load(file_og)
 
     # Initialize an empty list for processed_data
     processed_data = None
@@ -134,6 +143,10 @@ def find_last_processing(names_file_path: str, processed_path: str):
 
 
 def process_all():
+    """
+    Ova e metodot koj izvrsuva se, tuka se proveruva i dali se lokalno premzemeni podatocite i ako ne se togas odnovo
+    gi zima (scraping) :return: None
+    """
     if sys.stdout and hasattr(sys.stdout, "buffer"):
         sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors="replace")
 

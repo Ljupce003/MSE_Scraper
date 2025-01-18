@@ -26,10 +26,11 @@ public class Fundamental_Analysis_REST_controller {
     @GetMapping("/download/result")
     public ResponseEntity<FileSystemResource> downloadFile_names() {
         // Replace with the actual path to the generated CSV file
-        File file = new File("Domasna4/fundamental_m_service/src/main/python/Smestuvanje/channels.json");
+        File file = new File("src/main/python/Smestuvanje/channels.json");  //TODO promeni zatoa shto docker e posebna okolina
         if (!file.exists()) {
             return ResponseEntity.notFound().build();
         }
+
         // Create the response headers
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=channels.json");

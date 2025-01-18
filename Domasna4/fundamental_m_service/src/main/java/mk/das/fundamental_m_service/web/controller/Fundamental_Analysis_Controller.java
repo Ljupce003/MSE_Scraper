@@ -37,9 +37,7 @@ public class Fundamental_Analysis_Controller {
 
     @GetMapping("/fundamental")
     public String showFundamentalPage(Model model) {
-//        if(PythonRunnerFlag.flag){
-//            model.addAttribute("error","Fetching data...");
-//        }
+
         if(script_running_flag){
             model.addAttribute("analysis_error","Fundamental Analysis is not finished");
         }
@@ -58,9 +56,7 @@ public class Fundamental_Analysis_Controller {
     @PostMapping("/fundamental")
     public String showFundamentalPage(@RequestParam String code, Model model) {
         System.out.println(code);
-//        if(PythonRunnerFlag.flag){
-//            model.addAttribute("error","Python is Running");
-//        }
+
         if(script_running_flag){
             model.addAttribute("analysis_error","Fundamental Analysis is not finished");
         }

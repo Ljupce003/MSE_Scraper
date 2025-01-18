@@ -28,16 +28,11 @@ RUN apt-get update && apt-get install -y \
 COPY --from=builder /app/target/*.jar app.jar
 
 # Copy Python dependencies (installed via pip in python-env stage)
-#COPY --from=python-env /usr/local/lib/python3.11 /usr/local/lib/python3.11
-#COPY --from=python-env /usr/local/bin /usr/local/bin
-#COPY --from=python-env /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=python-env /usr/local /usr/local
 
 COPY src ./src
 
-# Optional: Copy your Python script
-# Uncomment and replace with the correct path for your Python script
-# COPY src/main/resources/python-script.py /python-script.py
+EXPOSE 8092
 
 # Set the default command to run your Java application
 ENTRYPOINT ["java", "-jar", "app.jar"]

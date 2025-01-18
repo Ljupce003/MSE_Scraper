@@ -21,6 +21,11 @@ import xml.etree.ElementTree as ET
 
 
 def fetch_data_from_category(url_input):
+    """
+    Gi prevzema iminjata i kogovite zaedno so nivnite linkovi koi se naoogaat na dadenata URL
+    :param url_input: URL na kategorijata kade se locirani del od Izdavacite
+    :return: list od recnici za Izdavacite
+    """
     response = requests.get(url_input)
 
     if response.status_code != 200:
@@ -59,7 +64,9 @@ def fetch_data_from_category(url_input):
 
 
 def FetchNames(json_output_path_l: str):
-
+    """
+    Gi prevzema iminjata i kogovite zaedno so nivnite linkovi i potoa gi zacuvuva vo JSON fajl
+    """
     url_base45 = "https://www.mse.mk/mk/stats/current-schedule"
 
     # Параметри за различните категории
@@ -176,10 +183,10 @@ class Channel:
 
 def getIssuerSiteLinksFromLocal(json_path, processed_json_path):
     """
-    Gi vraka listata od recnici od JSON fajl
+    Gi vraka listata od recnici od JSON fajl koi ne se procesirani
     :param processed_json_path:
     :param json_path:
-    :return:
+    :return: list od Izdavaci koi ne se processirani( izvadeni vesti)
     """
     with open(json_path, 'r', encoding='utf-8') as file_og:
         # Load the contents of the JSON file into a Python list of dictionaries
@@ -217,8 +224,8 @@ def getIssuerSiteLinksFromLocal(json_path, processed_json_path):
         # If the issuer hasn't been processed or was processed on a different day, add to list
         unprocessed_issuers.append(issuer)
 
-    print(unprocessed_issuers)
-    print(len(unprocessed_issuers))
+    #print(unprocessed_issuers)
+    #print(len(unprocessed_issuers))
     return unprocessed_issuers
 
 
@@ -241,6 +248,12 @@ def getRSS_url(url_input: str):
 
 
 def processIssuerDictToChannel(issuer):
+    """
+    Prima Recnik od eden Izdavac i go konvertira vo Channel objekt koj go sobrzi site informacii za nego zaedno so
+    linkovite na vestite za nego
+    :param issuer: Recnik od Izdavac
+    :return: Channel objekt so site informacii za toj izdavac
+    """
     rss_url = getRSS_url(issuer['Issuer link'])
 
     try:
@@ -272,7 +285,7 @@ def processIssuerDictToChannel(issuer):
     except requests.exceptions.RequestException as e:
         print(f"Error fetching RSS feed: {e}")
     except ET.ParseError as e:
-        print(f"Error parsing RSS feed: {e} . No information found for : {issuer['Issuer name']} and code "
+        print(f"Error parsing RSS feed. No information found for : {issuer['Issuer name']} and code "
               f"{issuer['Issuer code']}")
 
 
@@ -403,6 +416,12 @@ def extractTextForChannels(channel_list: list[Channel], container_found_counter=
 
 
 def process_rss_item(rss_item, channel_title):
+    """
+    Prevzema informacii od link od ChannelItem objekt i go vraka kako recnik so site informacii za taa vest
+    :param rss_item: ChallelItem objekt koj e vsushnost edna vest za Izdavac
+    :param channel_title: Imeto na Izdavacot
+    :return: Recnik od prevzemeni informacii za objektot koj sodrzi strukturata na vesta
+    """
     try:
         rss_link = rss_item.link
         soup = fetch_rss_page_with_playwright(rss_link)
@@ -428,6 +447,10 @@ def process_rss_item(rss_item, channel_title):
 
 
 def process_channel(channel):
+    """
+    Processiranje na site vesti za Izdavac objektot i gi skladira vo istiot objekt
+    :rtype: None
+    """
     try:
         # Collect all texts for this channel
         texts_to_translate = []
@@ -492,12 +515,14 @@ def extractTextForChannels_threaded(channel_list):
 
 
 def save_channels_to_file(channel_list: list[Channel], filename='channels.json'):
+    """
+    Go zacuvuva processiranata lista od recnici vo JSON fajl
+    :param channel_list: lista od recnici na procesirani Izdavaci
+    :param filename: Patekata na fajlot kade treba da se zacuva rezultatot
+    """
     # Convert the list of channels to a list of dictionaries (if necessary)
     # but if each channel is an object, make sure it can be serialized
     channels_dict = [channel.to_dict() for channel in channel_list]  # If Channel is a class
-
-    # Alternatively, if channel is a simple dictionary-like object:
-    # channels_dict = channel_list
 
     if os.path.exists(filename):
         # Load the processed issuers data from the file
@@ -526,22 +551,19 @@ def save_channels_to_file(channel_list: list[Channel], filename='channels.json')
 
 def check_and_add_issuer_data(json_file_path):
     if not os.path.exists(json_file_path):
+        print("Names file doesn't exist. It will be created.")
         FetchNames(json_file_path)
 
 
 def main():
     start_time = time.time()
 
-    current_directory = os.getcwd()
-
-    print("Current Directory:", current_directory)
-
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
     json_file_path = './Smestuvanje/names.json'
     json_channels_path = './Smestuvanje/channels.json'
 
-    # check_and_add_issuer_data(json_file_path)
+    check_and_add_issuer_data(json_file_path)
 
     dictio_list = getIssuerSiteLinksFromLocal(json_file_path, json_channels_path)
     channels = getRSSlinksForEachIssuer(dictio_list)
@@ -554,7 +576,7 @@ def main():
 
     end_time = time.time()
     duration = end_time - start_time
-    print(f'\nThere are {len(channels)} channels found')
+    print(f'\nThere are {len(channels)} channels found that needed to be processed')
     print(f"Program completed in {duration:.2f} seconds")
     sys.exit(0)
 
