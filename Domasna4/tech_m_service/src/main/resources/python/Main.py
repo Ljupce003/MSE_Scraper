@@ -13,8 +13,8 @@ import os
 import sys
 
 
-csv_file_path = "./Smestuvanje/mega-data.csv"
-json_file_path = "./Smestuvanje/issuer_names.json"
+csv_file_path = "Smestuvanje/mega-data.csv"
+json_file_path = "Smestuvanje/issuer_names.json"
 output_json = "./Smestuvanje/last_dates.json"
 patjson = "./Smestuvanje/issuer_names.json"
 url = "https://www.mse.mk/mk/stats/symbolhistory/ALK"
@@ -123,7 +123,7 @@ def FetchNames():
             seen.add((code, name))
 
     # Запишување на податоците во JSON фајл
-    output_dir = './Smestuvanje'
+    output_dir = 'Smestuvanje'
     os.makedirs(output_dir, exist_ok=True)  # Ако не постои папката, ја создава
     with open(os.path.join(output_dir, 'names.json'), 'w', encoding='utf-8') as f:
         json.dump(unique_data, f, ensure_ascii=False, indent=4)

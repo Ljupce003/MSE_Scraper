@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
+import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 
 @RestController
@@ -24,9 +25,9 @@ public class Tech_REST_controller {
 
     @CrossOrigin(origins = "*")
     @GetMapping("/download/mega-data.csv")
-    public ResponseEntity<FileSystemResource> downloadTechResult() {
+    public ResponseEntity<FileSystemResource> downloadTechResult() throws URISyntaxException {
         // Replace with the actual path to the generated CSV file
-        File file = new File("Domasna4/tech_m_service/src/main/python/Smestuvanje/mega-data.csv"); //TODO alter this after script finishes
+        File file = new File("/src/main/resources/python/Smestuvanje/mega-data.csv"); //TODO alter this after script finishes
         if (!file.exists()) {
             return ResponseEntity.notFound().build();
         }
@@ -50,7 +51,7 @@ public class Tech_REST_controller {
     @GetMapping("/download/issuer_names.json")
     public ResponseEntity<FileSystemResource> downloadFile_json() {
         // Replace with the actual path to the generated CSV file
-        File file = new File("Domasna4/tech_m_service/src/main/python/Smestuvanje/issuer_names.json");
+        File file = new File("/src/main/resources/python/Smestuvanje/issuer_names.json");
         if (!file.exists()) {
             return ResponseEntity.notFound().build();
         }
@@ -70,7 +71,7 @@ public class Tech_REST_controller {
     @GetMapping("/download/names.json")
     public ResponseEntity<FileSystemResource> getIssuerNames() {
         // Replace with the actual path to the generated CSV file
-        File file = new File("Domasna4/tech_m_service/src/main/python/Smestuvanje/names.json");
+        File file = new File("/src/main/resources/python/Smestuvanje/names.json");
         if (!file.exists()) {
             return ResponseEntity.notFound().build();
         }

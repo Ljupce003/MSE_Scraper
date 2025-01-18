@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 
 @Controller
@@ -23,14 +24,14 @@ public class Tech_Analysis_Controller {
     }
 
     @PostConstruct
-    private void init(){
+    private void init() throws URISyntaxException {
         script_last_run_time=LocalDateTime.now();
         scriptRunnerService.run_script();
     }
 
 
     @GetMapping({"/","/index"})
-    public String showIndexPage(Model model) {
+    public String showIndexPage(Model model) throws URISyntaxException {
 
         if(script_running_flag){
             model.addAttribute("error","Tech Analysis is not finished");
@@ -45,7 +46,7 @@ public class Tech_Analysis_Controller {
     }
 
     @GetMapping("/tech_analysis")
-    public String showFundamentalPage(Model model) {
+    public String showFundamentalPage(Model model) throws URISyntaxException {
 
         if(script_running_flag){
             model.addAttribute("error","Tech Analysis is not finished");
