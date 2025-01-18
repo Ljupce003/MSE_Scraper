@@ -30,6 +30,7 @@ public class Tech_Analysis_Controller {
     }
 
 
+
     @GetMapping({"/","/index"})
     public String showIndexPage(Model model) throws URISyntaxException {
 

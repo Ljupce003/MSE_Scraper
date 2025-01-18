@@ -20,6 +20,7 @@ public class PythonScriptRunnerServiceImplemented implements PythonScriptRunnerS
         this.resourceLoader = resourceLoader;
     }
 
+
     @Override
     public void run_script() {
         if (!Tech_Analysis_Controller.script_running_flag) {

@@ -249,6 +249,7 @@ def fetch_data_for_period(firm_code, start_date, end_date):
     return None
 
 
+
 def fetch_data_for_large_date_range(firm_code, start_date, end_date):
     all_data = []
     max_days = 365

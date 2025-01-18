@@ -26,3 +26,4 @@ EXPOSE 8091
 CMD java -jar /src/tech_m_service-0.0.1-SNAPSHOT.jar & \
     python /src/main/resources/python/Main.py && \
     wait $!
+

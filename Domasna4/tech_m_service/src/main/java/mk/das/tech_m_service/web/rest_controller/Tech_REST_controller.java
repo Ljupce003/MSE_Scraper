@@ -47,6 +47,7 @@ public class Tech_REST_controller {
     }
 
 
+
     @CrossOrigin(origins = "*")
     @GetMapping("/download/issuer_names.json")
     public ResponseEntity<FileSystemResource> downloadFile_json() {
