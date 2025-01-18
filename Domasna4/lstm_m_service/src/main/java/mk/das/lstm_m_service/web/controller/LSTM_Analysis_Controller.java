@@ -37,7 +37,7 @@ public class LSTM_Analysis_Controller {
 //            model.addAttribute("error","Fetching data...");
 //        }
         if(script_running_flag){
-            model.addAttribute("analysis_error","Fundamental Analysis is not finished");
+            model.addAttribute("lstm_error","Lstm is not finished");
         }
 
         LocalDateTime time_12hours_ago=LocalDateTime.now().minusHours(12);

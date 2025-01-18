@@ -34,7 +34,7 @@ public class PythonScriptRunnerServiceImplemented implements PythonScriptRunnerS
                 throw new RuntimeException("Invalid directory: " + workingDirectory.getAbsolutePath());
             }
 
-            String pythonPath="C:/Users/Ljupce/Desktop/MSE_Scraper_main/MSE_Scraper-main/Domasna3/dians/venv/Scripts/python.exe";  //TODO Voa treba se smene ako frla error file not found ama voa bara biblioteki za NLP i Nevronski mrezi
+            String pythonPath="python";  //TODO Voa treba se smene ako frla error file not found ama voa bara biblioteki za NLP i Nevronski mrezi
 
             // Патека до Python скриптата
             File scriptFile = new File(workingDirectory, "Fundamental_processing.py");

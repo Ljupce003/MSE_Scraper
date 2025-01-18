@@ -5,10 +5,12 @@ import mk.das.tech_m_service.service.PythonScriptRunnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDateTime;
 
 @Controller
+@RequestMapping("/")
 public class Tech_Analysis_Controller {
 
     public static boolean script_running_flag=false;
@@ -24,6 +26,22 @@ public class Tech_Analysis_Controller {
     private void init(){
         script_last_run_time=LocalDateTime.now();
         scriptRunnerService.run_script();
+    }
+
+
+    @GetMapping({"/","/index"})
+    public String showIndexPage(Model model) {
+
+        if(script_running_flag){
+            model.addAttribute("error","Tech Analysis is not finished");
+        }
+
+        LocalDateTime time_12hours_ago=LocalDateTime.now().minusHours(12);
+        if(script_last_run_time.isBefore(time_12hours_ago)){
+            scriptRunnerService.run_script();
+        }
+
+        return "index";
     }
 
     @GetMapping("/tech_analysis")

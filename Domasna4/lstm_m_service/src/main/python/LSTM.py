@@ -87,7 +87,7 @@ def predict_values_for_issuer(all_data: pd.DataFrame, issuer_code: str):
     score = r2_score(y_test, y_pred)
 
     merged_res = pd.concat([y_test.reset_index(), pd.DataFrame({"close_pred": y_pred.flatten()})], axis=1)
-    merged_res['date'] = merged_res['date'].dt.strftime('%d.%m.%y')
+    merged_res['date'] = merged_res['date'].dt.strftime('%d.%m.%Y')
 
     merged_res['code'] = [issuer_code] * len(merged_res)
     merged_res['score'] = [score] * len(merged_res)

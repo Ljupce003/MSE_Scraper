@@ -80,6 +80,4 @@ public class Fundamental_Analysis_Controller {
 
         return "fundamental";
     }
-
-
 }

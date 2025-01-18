@@ -37,51 +37,51 @@
     </style>
 </head>
 <body>
-    <header>
-        <div>
-            <img src="/images/logo.png" width="70px" height="60px">
-            <h1>МАКЕДОНСКА БЕРЗА</h1>
-        </div>
-        <menu>
-            <ul>
-                <li><a href="/index">Почетна</a></li>
-                <li><a href="/tech_analysis">Техничка анализа</a></li>
-                <li><a href="/fundamental">Фундаментална анализа</a></li>
-                <li class="active"><a href="/lstm">LSTM</a></li>
-            </ul>
-        </menu>
-    </header>
-    
-    <section id="tech">
-        <center>
+<header>
+    <div>
+        <img src="/images/logo.png" width="70px" height="60px">
+        <h1>МАКЕДОНСКА БЕРЗА</h1>
+    </div>
+    <menu>
+        <ul>
+            <li><a href="/index">Почетна</a></li>
+            <li><a href="/tech_analysis">Техничка анализа</a></li>
+            <li><a href="/fundamental">Фундаментална анализа</a></li>
+            <li class="active"><a href="/lstm">LSTM</a></li>
+        </ul>
+    </menu>
+</header>
+
+<section id="tech">
+    <center>
         <br>
-        <input type="hidden" name="haveError" th:value="${error}!=null ? false : true ">
+        <input type="hidden" name="haveError" th:value="${lstm_error}!=null ? false : true ">
 
-        <div th:text="${error}!=null ? ${error} : ''" >Greski se prikazuvat ovde</div>
-            <div id="loader-container" class="loader-container" th:classappend="${error != null ? 'active' : ''}">
-                <div class="circle-loader"></div>
+        <div th:text="${lstm_error}!=null ? ${lstm_error} : ''" >Greski se prikazuvat ovde</div>
+        <div id="loader-container" class="loader-container" th:classappend="${lstm_error != null ? 'active' : ''}">
+            <div class="circle-loader"></div>
+        </div>
+
+        <div class="main-wrapper">
+            <div class="selectors-container">
+                <div class="col">
+                    <label for="stockSelector">Акции:</label>
+                    <select id="stockSelector">
+                        <option value="">избери</option>
+                    </select>
+                </div>
             </div>
+            <div id="container"></div>
+        </div>
+        <div>
+            <h3 id="score_container">
 
-                <div class="main-wrapper">
-                    <div class="selectors-container">
-                        <div class="col">
-                            <label for="stockSelector">Акции:</label>
-                            <select id="stockSelector">
-                                <option value="">избери</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="container"></div>
-                </div>
-                <div>
-                    <h3 id="score_container">
+            </h3>
+        </div>
 
-                    </h3>
-                </div>
-
-        </center>
-    </section>
-    <script src="/js/lstmChart.js"></script>
-    <script src="/js/autoRefresh.js"></script>
+    </center>
+</section>
+<script src="/js/lstmChart.js"></script>
+<script src="/js/autoRefresh.js"></script>
 </body>
 </html>

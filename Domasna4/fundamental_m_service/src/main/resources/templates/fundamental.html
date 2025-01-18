@@ -58,7 +58,7 @@
 
     <div th:text="${error}!=null ? ${error} : ''" >Greski se prikazuvat ovde</div>
     <div th:text="${analysis_error}!=null ? ${analysis_error} : ''" >Greski se prikazuvat ovde</div>
-    <div id="loader-container" class="loader-container" th:classappend="${error != null ? 'active' : ''}">
+    <div id="loader-container" class="loader-container" th:classappend="${analysis_error != null ? 'active' : ''}">
       <div class="circle-loader"></div>
     </div>
 

@@ -46,7 +46,7 @@ public class LSTM_REST_controller {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/download/lstm-flag")
+    @GetMapping("/lstm-flag")
         public ResponseEntity<Boolean> getScriptRunningFlag(){
             HttpHeaders headers = new HttpHeaders();
             headers.add(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate");

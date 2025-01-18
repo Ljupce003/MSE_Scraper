@@ -86,7 +86,7 @@ public class Tech_REST_controller {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/download/tech-flag")
+    @GetMapping("/tech-flag")
         public ResponseEntity<Boolean> getScriptRunningFlag(){
             HttpHeaders headers = new HttpHeaders();
             headers.add(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate");

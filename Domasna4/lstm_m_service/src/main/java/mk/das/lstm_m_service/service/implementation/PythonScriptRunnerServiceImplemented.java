@@ -26,14 +26,14 @@ public class PythonScriptRunnerServiceImplemented implements PythonScriptRunnerS
             System.out.println("Starting Python script 'LSTM' in background...");
 
             // Релативна патека до директориумот каде се наоѓа Python скриптата
-            File workingDirectory = new File(System.getProperty("user.dir"), "Domasna4/lstm_m_service/src/main/python");        //TODO Voa treba se smene ako frla error file not found
+            File workingDirectory = new File(System.getProperty("user.dir"), "/Domasna4/lstm_m_service/src/main/python");        //TODO Voa treba se smene ako frla error file not found
 
             // Проверка дали директориумот постои и е валиден
             if (!workingDirectory.exists() || !workingDirectory.isDirectory()) {
                 throw new RuntimeException("Invalid directory: " + workingDirectory.getAbsolutePath());
             }
 
-            String pythonPath="C:/Users/Ljupce/Desktop/MSE_Scraper_main/MSE_Scraper-main/Domasna3/dians/venv/Scripts/python.exe";  //TODO Voa treba se smene ako frla error file not found ama voa bara biblioteki za NLP i Nevronski mrezi
+            String pythonPath="python";  //TODO Voa treba se smene ako frla error file not found ama voa bara biblioteki za NLP i Nevronski mrezi
 
             // Патека до Python скриптата
             File scriptFile = new File(workingDirectory, "LSTM.py");

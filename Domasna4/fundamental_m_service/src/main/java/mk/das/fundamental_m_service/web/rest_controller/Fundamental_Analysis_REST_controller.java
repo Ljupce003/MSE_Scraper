@@ -2,7 +2,6 @@ package mk.das.fundamental_m_service.web.rest_controller;
 
 import mk.das.fundamental_m_service.service.PythonScriptRunnerService;
 import mk.das.fundamental_m_service.web.controller.Fundamental_Analysis_Controller;
-import org.example.dians.Component.PythonRunnerFlag;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -47,7 +46,7 @@ public class Fundamental_Analysis_REST_controller {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/download/fund-flag")
+    @GetMapping("/fund-flag")
         public ResponseEntity<Boolean> getScriptRunningFlag(){
             HttpHeaders headers = new HttpHeaders();
             headers.add(HttpHeaders.CACHE_CONTROL, "no-cache, no-store, must-revalidate");

@@ -1,67 +1,67 @@
 [
     {
         "code": "ADIN",
-        "last_date": "21.11.2024"
+        "last_date": "17.01.2025"
     },
     {
         "code": "ALK",
-        "last_date": "03.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "GRNT",
-        "last_date": "03.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "INB",
-        "last_date": "03.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "KMB",
-        "last_date": "03.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "MPT",
-        "last_date": "03.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "MTUR",
-        "last_date": "03.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "OKTA",
-        "last_date": "25.12.2024"
+        "last_date": "16.01.2025"
     },
     {
         "code": "REPL",
-        "last_date": "03.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "SBT",
-        "last_date": "27.12.2024"
+        "last_date": "17.01.2025"
     },
     {
         "code": "STB",
-        "last_date": "03.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "STIL",
-        "last_date": "02.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "TEL",
-        "last_date": "30.12.2024"
+        "last_date": "17.01.2025"
     },
     {
         "code": "TNB",
-        "last_date": "03.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "TTK",
-        "last_date": "03.01.2025"
+        "last_date": "17.01.2025"
     },
     {
         "code": "UNI",
-        "last_date": "30.12.2024"
+        "last_date": "16.01.2025"
     },
     {
         "code": "AUMK",
@@ -77,7 +77,7 @@
     },
     {
         "code": "PPIV",
-        "last_date": "16.12.2024"
+        "last_date": "15.01.2025"
     },
     {
         "code": "RADE",
@@ -89,23 +89,23 @@
     },
     {
         "code": "RZUS",
-        "last_date": "19.12.2024"
+        "last_date": "16.01.2025"
     },
     {
         "code": "TASK",
-        "last_date": "02.01.2025"
+        "last_date": "15.01.2025"
     },
     {
         "code": "TETE",
-        "last_date": "24.12.2024"
+        "last_date": "17.01.2025"
     },
     {
         "code": "TKVS",
-        "last_date": "03.01.2025"
+        "last_date": "16.01.2025"
     },
     {
         "code": "VITA",
-        "last_date": "20.12.2024"
+        "last_date": "13.01.2025"
     },
     {
         "code": "ALKB",
@@ -145,11 +145,11 @@
     },
     {
         "code": "BLTU",
-        "last_date": "06.01.2015"
+        "last_date": "18.01.2015"
     },
     {
         "code": "CBNG",
-        "last_date": "06.01.2015"
+        "last_date": "18.01.2015"
     },
     {
         "code": "CEVI",
@@ -233,7 +233,7 @@
     },
     {
         "code": "INHO",
-        "last_date": "06.01.2015"
+        "last_date": "18.01.2015"
     },
     {
         "code": "INOV",
@@ -245,7 +245,7 @@
     },
     {
         "code": "INTP",
-        "last_date": "06.01.2015"
+        "last_date": "18.01.2015"
     },
     {
         "code": "JAKO",
@@ -297,11 +297,11 @@
     },
     {
         "code": "KVAS",
-        "last_date": "17.09.2024"
+        "last_date": "16.01.2025"
     },
     {
         "code": "LOTO",
-        "last_date": "25.10.2024"
+        "last_date": "17.01.2025"
     },
     {
         "code": "LOZP",
@@ -345,7 +345,7 @@
     },
     {
         "code": "MZHE",
-        "last_date": "06.01.2015"
+        "last_date": "18.01.2015"
     },
     {
         "code": "MZPU",
@@ -385,7 +385,7 @@
     },
     {
         "code": "OTEK",
-        "last_date": "06.01.2015"
+        "last_date": "18.01.2015"
     },
     {
         "code": "PKB",
@@ -413,7 +413,7 @@
     },
     {
         "code": "RZLV",
-        "last_date": "14.10.2024"
+        "last_date": "16.01.2025"
     },
     {
         "code": "RZTK",
@@ -461,7 +461,7 @@
     },
     {
         "code": "SPOL",
-        "last_date": "06.01.2015"
+        "last_date": "18.01.2015"
     },
     {
         "code": "SSPR",
@@ -489,7 +489,7 @@
     },
     {
         "code": "TIGA",
-        "last_date": "06.01.2015"
+        "last_date": "18.01.2015"
     },
     {
         "code": "TIKV",
@@ -497,11 +497,11 @@
     },
     {
         "code": "TKPR",
-        "last_date": "13.09.2021"
+        "last_date": "14.01.2025"
     },
     {
         "code": "TRDB",
-        "last_date": "06.01.2015"
+        "last_date": "18.01.2015"
     },
     {
         "code": "TRPS",
@@ -545,7 +545,7 @@
     },
     {
         "code": "ZILUP",
-        "last_date": "06.01.2015"
+        "last_date": "18.01.2015"
     },
     {
         "code": "ZKAR",
