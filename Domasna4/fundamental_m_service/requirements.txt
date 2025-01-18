@@ -1,0 +1,15 @@
+beautifulsoup4==4.12.3  # For web scraping
+huggingface-hub==0.27.0  # Hugging Face model hub
+joblib==1.4.2  # Required for Transformers
+numpy==2.2.1 #numpy==2.0.2  # Core library for data manipulation
+pandas==2.2.3  # For data analysis
+playwright==1.49.1  # For browser automation
+python-dateutil==2.9.0.post0  # Date manipulation
+regex==2024.11.6  # Required by Transformers
+requests==2.32.3  # For API calls
+tokenizers==0.21.0  # Hugging Face tokenizer
+torch==2.5.1  # PyTorch (required for Transformers)
+transformers==4.47.1  # Hugging Face Transformers
+tqdm==4.67.1  # For progress bars
+scikit-learn==1.6.1  # For data preprocessing and evaluation
+

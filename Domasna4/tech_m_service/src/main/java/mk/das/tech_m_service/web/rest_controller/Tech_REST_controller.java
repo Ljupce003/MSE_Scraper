@@ -33,7 +33,7 @@ public class Tech_REST_controller {
         }
         // Create the response headers
         HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=mega-data.csv"); //TODO alter this after script finishes
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=mega-data.csv");
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_OCTET_STREAM_VALUE);
 
         if(Tech_Analysis_Controller.script_last_run_time.isBefore(LocalDateTime.now().minusHours(12))){
