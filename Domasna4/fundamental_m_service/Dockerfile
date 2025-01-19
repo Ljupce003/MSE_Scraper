@@ -12,6 +12,34 @@ WORKDIR /python-app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+#d
+
+# Install system dependencies for Playwright
+RUN apt-get update && apt-get install -y \
+    libgtk-3-0 \
+    libdbus-1-3 \
+    libgdk-pixbuf2.0-0 \
+    libasound2 \
+    libx11-xcb1 \
+    libnss3 \
+    libxtst6 \
+    libxss1 \
+    xdg-utils \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js (necessary for Playwright)
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm
+
+# Install Playwright and its browsers
+RUN npm install playwright
+RUN npx playwright install
+
+#d
+
 # Stage 3: Final image
 FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app

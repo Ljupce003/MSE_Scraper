@@ -13,9 +13,7 @@ public class LSTM_Controller {
 
     @GetMapping("/lstm")
     public String showLstmPage(Model model) {
-//        if(PythonRunnerFlag.flag){
-//            model.addAttribute("error","Fetching data...");
-//        }
+
         return "lstm";
     }
 }

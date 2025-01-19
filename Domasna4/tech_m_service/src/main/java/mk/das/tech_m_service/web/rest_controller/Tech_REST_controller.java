@@ -27,8 +27,10 @@ public class Tech_REST_controller {
     @GetMapping("/download/mega-data.csv")
     public ResponseEntity<FileSystemResource> downloadTechResult() throws URISyntaxException {
         // Replace with the actual path to the generated CSV file
-        File file = new File("/src/main/resources/python/Smestuvanje/mega-data.csv"); //TODO alter this after script finishes
+        File file = new File("src/main/python/Smestuvanje/mega-data.csv"); //TODO alter this after script finishes
         if (!file.exists()) {
+            System.out.println("mega-data.csv file not found");
+            System.out.println(System.getProperty("user.dir"));
             return ResponseEntity.notFound().build();
         }
         // Create the response headers
@@ -48,12 +50,14 @@ public class Tech_REST_controller {
 
 
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/download/issuer_names.json")
     public ResponseEntity<FileSystemResource> downloadFile_json() {
         // Replace with the actual path to the generated CSV file
-        File file = new File("/src/main/resources/python/Smestuvanje/issuer_names.json");
+        File file = new File("src/main/python/Smestuvanje/issuer_names.json");
         if (!file.exists()) {
+            System.out.println("issuer_names.json file not found");
+            System.out.println(System.getProperty("user.dir"));
             return ResponseEntity.notFound().build();
         }
         // Create the response headers
@@ -68,12 +72,14 @@ public class Tech_REST_controller {
     }
 
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/download/names.json")
     public ResponseEntity<FileSystemResource> getIssuerNames() {
         // Replace with the actual path to the generated CSV file
-        File file = new File("/src/main/resources/python/Smestuvanje/names.json");
+        File file = new File("src/main/python/Smestuvanje/names.json");
         if (!file.exists()) {
+            System.out.println("names.json file not found");
+            System.out.println(System.getProperty("user.dir"));
             return ResponseEntity.notFound().build();
         }
         // Create the response headers
@@ -87,7 +93,7 @@ public class Tech_REST_controller {
                 .body(new FileSystemResource(file));
     }
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/tech-flag")
         public ResponseEntity<Boolean> getScriptRunningFlag(){
             HttpHeaders headers = new HttpHeaders();

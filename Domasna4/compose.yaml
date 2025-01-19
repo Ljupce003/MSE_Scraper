@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  api-gateway:
+    build:
+      context: ./API_Gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    volumes:
+      - ./API_Gateway/src/main/local:/app/src/main/local
+    networks:
+      - app_network
+
+  fundamental-microservice:
+    build:
+      context: ./fundamental_m_service
+      dockerfile: Dockerfile
+    ports:
+      - "8092:8092"
+    volumes:
+      - ./fundamental_m_service/src/main/python/Smestuvanje:/app/src/main/python/Smestuvanje
+    networks:
+      - app_network
+
+  lstm-microservice:
+    build:
+      context: ./lstm_m_service
+      dockerfile: Dockerfile
+    ports:
+      - "8093:8093"
+    volumes:
+      - ./lstm_m_service/src/main/python/Smestuvanje:/app/src/main/python/Smestuvanje
+    networks:
+      - app_network
+
+  technical-microservice:
+    build:
+      context: ./tech_m_service
+      dockerfile: Dockerfile
+    ports:
+      - "8091:8091"
+    volumes:
+      - ./tech_m_service/src/main/python/Smestuvanje:/app/src/main/python/Smestuvanje
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

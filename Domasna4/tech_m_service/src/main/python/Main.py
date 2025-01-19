@@ -13,8 +13,8 @@ import os
 import sys
 
 
-csv_file_path = "./Smestuvanje/mega-data.csv"
-json_file_path = "./Smestuvanje/issuer_names.json"
+csv_file_path = "Smestuvanje/mega-data.csv"
+json_file_path = "Smestuvanje/issuer_names.json"
 output_json = "./Smestuvanje/last_dates.json"
 patjson = "./Smestuvanje/issuer_names.json"
 url = "https://www.mse.mk/mk/stats/symbolhistory/ALK"
@@ -27,18 +27,15 @@ if not os.path.exists(directory):
     os.makedirs(directory)
     print(f"Folder '{directory}' is created.")
 
-if not os.path.isfile(json_file_path):
-    print(f"Folder '{json_file_path}' does NOT exist")
-else:
-    with open(json_file_path, 'r', encoding='utf-8') as file:
-        data = json.load(file)
-        print("Data is read successfully")
+# if not os.path.isfile(json_file_path):
+#     print(f"Folder '{json_file_path}' does NOT exist")
+# else:
+#     with open(json_file_path, 'r', encoding='utf-8') as file:
+#         data = json.load(file)
+#         print("Data is read successfully")
 
 # URL на страницата
 url_base45 = "https://www.mse.mk/mk/stats/current-schedule"
-
-# Список за чување на податоци
-data12 = []
 
 # Параметри за различните категории
 categories = [
@@ -107,6 +104,8 @@ def fetch_data_from_category(url_input):
 
 
 def FetchNames():
+
+    data12 = []
     # Пребарување и собирање на податоци од сите категории
     for category in categories:
         print(f"Reading data for category: {category['name']}")
@@ -124,7 +123,7 @@ def FetchNames():
             seen.add((code, name))
 
     # Запишување на податоците во JSON фајл
-    output_dir = './Smestuvanje'
+    output_dir = 'Smestuvanje'
     os.makedirs(output_dir, exist_ok=True)  # Ако не постои папката, ја создава
     with open(os.path.join(output_dir, 'names.json'), 'w', encoding='utf-8') as f:
         json.dump(unique_data, f, ensure_ascii=False, indent=4)
@@ -248,6 +247,7 @@ def fetch_data_for_period(firm_code, start_date, end_date):
             data_out.insert(0, "Issuer", firm_code)
             return data_out
     return None
+
 
 
 def fetch_data_for_large_date_range(firm_code, start_date, end_date):

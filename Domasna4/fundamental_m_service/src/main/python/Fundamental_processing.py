@@ -9,7 +9,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from playwright.sync_api import sync_playwright
 from collections import Counter
-import logging
+#import logging
 import io
 import requests
 from bs4 import BeautifulSoup
@@ -442,7 +442,7 @@ def process_rss_item(rss_item, channel_title):
 
         return {"channel_title": channel_title, "rss_link": rss_link, "text": concatenated_t}
     except Exception as e:
-        logging.error(f"Error processing RSS item {rss_item.link}: {str(e)}")
+        print(f"Error processing RSS item {rss_item.link}: {str(e)}")
         return None
 
 
@@ -476,7 +476,7 @@ def process_channel(channel):
                 translated_batch = translator(batch, max_length=512, truncation=True)
                 translated_texts.extend([res['translation_text'].strip() for res in translated_batch])
             except Exception as e:
-                logging.error(f"Translation error: {str(e)}")
+                print(f"Translation error: {str(e)}")
 
         # Perform sentiment analysis
         sentiments = []
@@ -485,7 +485,7 @@ def process_channel(channel):
             try:
                 sentiments.extend(model(batch))
             except Exception as e:
-                logging.error(f"Sentiment analysis error: {str(e)}")
+                print(f"Sentiment analysis error: {str(e)}")
 
         # Prepare processed data
         rss_model_processed = []
@@ -502,8 +502,9 @@ def process_channel(channel):
 
         # Update the channel with processed data
         channel.setProcessed(rss_model_processed)
+        sys.stdout.flush()
     except Exception as e:
-        logging.error(f"Error processing channel {channel.title}: {str(e)}")
+        print(f"Error processing channel {channel.title}: {str(e)}")
 
 
 def extractTextForChannels_threaded(channel_list):
@@ -558,7 +559,7 @@ def check_and_add_issuer_data(json_file_path):
 def main():
     start_time = time.time()
 
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    #logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
     json_file_path = './Smestuvanje/names.json'
     json_channels_path = './Smestuvanje/channels.json'
@@ -569,8 +570,8 @@ def main():
     channels = getRSSlinksForEachIssuer(dictio_list)
     channels = extractTextForChannels_threaded(channels)
 
-    for channel_object in channels:
-        print(channel_object)
+    # for channel_object in channels:
+    #     print(channel_object)
 
     save_channels_to_file(channels, json_channels_path)
 

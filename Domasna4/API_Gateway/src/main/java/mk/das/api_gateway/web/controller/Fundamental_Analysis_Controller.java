@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +20,8 @@ import java.util.stream.Collectors;
 @Controller
 public class Fundamental_Analysis_Controller {
     private final FileDownloadService fileDownloadService;
+
+    public static LocalDateTime fund_last_fetch_date=LocalDateTime.now();
 
     public Fundamental_Analysis_Controller(FileDownloadService fileDownloadService) {
 
@@ -27,16 +31,11 @@ public class Fundamental_Analysis_Controller {
 
     @GetMapping("/fundamental")
     public String showFundamentalPage(Model model) {
-//        if(PythonRunnerFlag.flag){
-//            model.addAttribute("error","Fetching data...");
-//        }
-//        if(PythonRunnerFlag.analysis_flag){
-//            model.addAttribute("analysis_error","Fundamental Analysis is not finished");
-//        }
+
         List<String> list = new ArrayList<>(CSVtoJAVA.AnalysisCodes().keySet());
 
 
-        this.fileDownloadService.downloadFundamentalFile("http://localhost:8092/download/result");
+        this.fileDownloadService.downloadFundamentalFile("http://fundamental-microservice:8092/download/result");
 
 
         model.addAttribute("codes_dropdown",list.stream().sorted().collect(Collectors.toList()));
@@ -49,14 +48,8 @@ public class Fundamental_Analysis_Controller {
     @PostMapping("/fundamental")
     public String showFundamentalPage(@RequestParam String code, Model model) {
         System.out.println(code);
-//        if(PythonRunnerFlag.flag){
-//            model.addAttribute("error","Python is Running");
-//        }
-//        if(PythonRunnerFlag.analysis_flag){
-//            model.addAttribute("analysis_error","Fundamental Analysis is not finished");
-//        }
 
-        this.fileDownloadService.downloadFundamentalFile("http://localhost:8092/download/result");
+        this.fileDownloadService.downloadFundamentalFile("http://fundamental-microservice:8092/download/result");
 
         Issuer result= CSVtoJAVA.GetAnalysisResultByCode(code);
 

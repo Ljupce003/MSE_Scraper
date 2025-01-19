@@ -1,6 +1,7 @@
 package mk.das.api_gateway.service.implementations;
 
 import mk.das.api_gateway.service.FileDownloadService;
+import mk.das.api_gateway.web.controller.Fundamental_Analysis_Controller;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -15,6 +16,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalDateTime;
 
 
 @Service
@@ -24,55 +26,50 @@ class FileDownloadServiceImplemented implements FileDownloadService {
 
         public void downloadFundamentalFile(String url) {
 
-            File fundamentals_file = new File(System.getProperty("user.dir"), "Domasna4/API_Gateway/src/main/local/channels.json");
+            File fundamentals_file = new File(System.getProperty("user.dir"), "/src/main/local/channels.json");
 
             if (!fundamentals_file.exists()){
-                try {
-                    // Make the GET request
-                    ResponseEntity<Resource> response = restTemplate.getForEntity(url, Resource.class);
-
-                    // Save the file locally
-                    if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
-                        Resource resource = response.getBody();
-                        InputStream inputStream = resource.getInputStream();
-                        File file = new File(System.getProperty("user.dir"), "Domasna4/API_Gateway/src/main/local/channels.json"); // Change the path as needed
-                        try (FileOutputStream outputStream = new FileOutputStream(file)) {
-                            byte[] buffer = new byte[1024];
-                            int bytesRead;
-                            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                                outputStream.write(buffer, 0, bytesRead);
-                            }
-                        }
-                        System.out.println("File downloaded successfully: " + file.getAbsolutePath());
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                fetchFileFromUrl(url);
             }
+            else if(Fundamental_Analysis_Controller.fund_last_fetch_date.isBefore(LocalDateTime.now().minusHours(1))){
+                fetchFileFromUrl(url);
+            }
+
+
 
 
         }
 
+    private void fetchFileFromUrl(String url) {
+        try {
+            // Make the GET request
+            ResponseEntity<Resource> response = restTemplate.getForEntity(url, Resource.class);
+
+            // Save the file locally
+            if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
+                Resource resource = response.getBody();
+                InputStream inputStream = resource.getInputStream();
+                File file = new File(System.getProperty("user.dir"), "/src/main/local/channels.json"); // Change the path as needed
+                try (FileOutputStream outputStream = new FileOutputStream(file)) {
+                    byte[] buffer = new byte[1024];
+                    int bytesRead;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                }
+                System.out.println("File downloaded successfully: " + file.getAbsolutePath());
+                Fundamental_Analysis_Controller.fund_last_fetch_date= LocalDateTime.now();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public ResponseEntity<InputStreamResource> redirectFileFromURL(String url,String filename) {
-//        try {
-//            // Make the GET request
-//            ResponseEntity<FileSystemResource> response = restTemplate.getForEntity(url, FileSystemResource.class);
-//
-//            if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
-//                return response;
-//            }
-//
-//
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//        return ResponseEntity.notFound().build();
-
-
-//        String microserviceUrl = "http://localhost:8091/download/mega-data.csv"; // URL of the microservice
 
         try {
+            System.out.println("Connecting to URL: " + url);
             // Open a connection to the microservice
             HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
             connection.setRequestMethod("GET");
